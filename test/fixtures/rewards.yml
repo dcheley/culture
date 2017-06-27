@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  progress: 
+  name: 
+  award: 
+  user_id: 
+  activity_id: 1
+
+two:
+  progress: 
+  name: 
+  award: 
+  user_id: 
+  activity_id: 1
