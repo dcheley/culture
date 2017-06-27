@@ -1,7 +1,41 @@
 <!-- Normal User View  -->
 <h1>Please Choose a Gift Card</h1>
 
-<%= button_to 'Starbucks', {controller: :rewards, action: :create, reward: {name: :Starbucks, user_id: current_user.id, award: 3}}%>
+<%= button_to 'Starbucks', {controller: :rewards, action: :create,
+    reward: {name: 'Starbucks', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Home Depot', {controller: :rewards, action: :create,
+    reward: {name: 'Home Depot', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Cineplex', {controller: :rewards, action: :create,
+    reward: {name: :Starbucks, user_id: current_user.id, award: 3}} %>
+
+<%= button_to "Cara (Kelsey's, Milestones, Montana's, East Side Mario's)", {controller: :rewards, action: :create,
+    reward: {name: 'Cara', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Petro Canada', {controller: :rewards, action: :create,
+    reward: {name: 'Petro Canada', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Canadian Tire', {controller: :rewards, action: :create,
+    reward: {name: 'Canadian Tire', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Subway', {controller: :rewards, action: :create,
+    reward: {name: 'Subway', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Apple', {controller: :rewards, action: :create,
+    reward: {name: 'Apple', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Indigo', {controller: :rewards, action: :create,
+    reward: {name: 'Indigo', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'The Keg', {controller: :rewards, action: :create,
+    reward: {name: 'The Keg', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Golf Town', {controller: :rewards, action: :create,
+    reward: {name: 'Golf Town', user_id: current_user.id, award: 3}} %>
+
+<%= button_to 'Boston Pizza', {controller: :rewards, action: :create,
+    reward: {name: 'Boston Pizza', user_id: current_user.id, award: 3}} %>
 
 <!-- Admin User View  -->
 <!--  form_for(@reward) -->
