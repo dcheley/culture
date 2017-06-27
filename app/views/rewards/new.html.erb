@@ -1,7 +1,7 @@
 <!-- Normal User View  -->
 <h1>Please Choose a Gift Card</h1>
 
-<%= %>
+<%= button_to 'Starbucks', {controller: :rewards, action: :create, reward: {name: :Starbucks, user_id: current_user.id, award: 3}}%>
 
 <!-- Admin User View  -->
 <!--  form_for(@reward) -->

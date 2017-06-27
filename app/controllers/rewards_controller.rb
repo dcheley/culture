@@ -7,7 +7,7 @@ class RewardsController < ApplicationController
   def create
     @reward = Reward.new(reward_params)
     if @reward.save
-      redirect_to 'users#show', notice: 'Gift card chosen, view your current progress below'
+      redirect_to user_url(current_user), notice: 'Gift card chosen, view your current progress below'
     else
       render :new
     end
