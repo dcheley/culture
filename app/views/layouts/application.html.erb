@@ -3,12 +3,19 @@
   <head>
     <title>Culture</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <p class="alert"><%= flash[:notice] %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
