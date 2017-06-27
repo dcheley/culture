@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_scrope :user do
+  devise_scope :user do
     root to: 'users#index'
   end
 
