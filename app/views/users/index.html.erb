@@ -1,22 +1,24 @@
 <!-- Normal User View -->
-<h1>Welcome to the CSD</h1>
+<h1 class="home-title">Welcome to the CSD</h1>
 
-<p>This is your employee onboarding challenge!</p>
+<p class="welcome-text">This is your employee onboarding challenge!</p>
 
-<p>
+<p class="welcome-text">
   By completing the integration activities you will become more acquainted with
   your new coworkers and you will gain a deeper understanding of the
   organizational culture in the Corporate Services Division.
  </p>
 
-<p>
+<p class="welcome-text">
   For each activity you complete, you will be rewarded with money towards a gift
   card of your choosing. Upon completing all activities you will be rewarded the
   total $20 gift card of your choosing. If you don't complete all of the
   activities you will still be awarded for your progress!
 </p>
 
+<div class="link-wrap">
 <!-- TODO Use if helper to display user#show link if user.reward != nil -->
-<%= link_to 'Click Here to get Started', 'rewards/new' %>
+  <%= link_to 'Click Here to get Started', 'rewards/new', class:'bottom-link' %>
+</div>
 
 <!-- Admin User View -->
