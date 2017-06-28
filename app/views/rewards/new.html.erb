@@ -1,17 +1,21 @@
 <!-- Normal User View  -->
-<% if flash[:alert] %>
-  <div class="link-wrap">
-    <%= link_to 'Profile', "/users/#{current_user.id}" %>
-  </div>
-<% end %>
-
-<h1 class="home-title">Please Choose a Gift Card</h1>
-
-<div class="form-container">
-  <% @rewards.where(user_id: nil).each do |r| %>
-    <%= button_to "#{r.name}", {controller: :rewards, action: :create,
-      reward: {name: "#{r.name}", user_id: current_user.id, award: 0}} %><br />
+<% if current_user.admin != 1 %>
+  <% if flash[:alert] %>
+    <div class="link-wrap">
+      <%= link_to 'Profile', "/users/#{current_user.id}" %>
+    </div>
   <% end %>
-</div>
+
+  <h1 class="home-title">Please Choose a Gift Card</h1>
+
+  <div class="form-container">
+    <% @rewards.where(user_id: nil).each do |r| %>
+      <%= button_to "#{r.name}", {controller: :rewards, action: :create,
+        reward: {name: "#{r.name}", user_id: current_user.id, award: 0}} %><br />
+    <% end %>
+  </div>
+
 <!-- Admin User View  -->
-<!--  <%= render 'reward_form' %> -->
+<% else %>
+  <%= render 'reward_form' %>
+<% end %>
