@@ -1,7 +1,14 @@
 <h1 class="home-title">Welcome</h1>
 
+<% if flash[:alert] %>
+  <div class="link-wrap">
+    <%= link_to 'Profile', "/users/#{@user.id}" %>
+  </div>
+<% end %>
+
 <p class="home-header">Activities Completed</p>
 
 <p class="home-header">Gift Card $$$ Awarded</p>
+<%= @reward.award %>
 
 <p class="home-header">Activities to be Completed</p>
