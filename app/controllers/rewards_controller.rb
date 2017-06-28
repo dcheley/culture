@@ -21,7 +21,6 @@ class RewardsController < ApplicationController
   end
 
   def reward_params
-    params.require(:reward).permit(:name, :award, :progress, :user_id,
-    :activity_id)
+    params.require(:reward).permit(:name, :award, :progress, :user_id)
   end
 end
