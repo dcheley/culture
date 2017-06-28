@@ -15,10 +15,12 @@
  */
 .notice {
   color: blue;
+  text-align: center;
 }
 
 .alert {
   color: red;
+  text-align: center;
 }
 
 .home-title {
