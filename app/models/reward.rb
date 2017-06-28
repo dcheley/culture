@@ -3,4 +3,5 @@ class Reward < ApplicationRecord
   has_many :activities
 
   validates :user_id, uniqueness: true
+  validates :name, presence: true
 end
