@@ -12,6 +12,6 @@
 <div class="third">
   <p class="home-header">Activities to be Completed</p>
   <% @activities.each do |a| %>
-    <li class="activity-items"><%= a.name %></li>
+    <li class="activity-items"><%= link_to a.name, "/activities/#{a.id}/edit", class:"link" %></li>
   <% end %>
 </div>
