@@ -11,4 +11,7 @@
 
 <div class="third">
   <p class="home-header">Activities to be Completed</p>
+  <% @activities.each do |a| %>
+    <li class="activity-items"><%= a.name %></li>
+  <% end %>
 </div>

@@ -23,7 +23,7 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    if @activity.update_attributes
+    if @activity.update_attributes(activity_params)
       redirect_to '/activities', notice: "#{@activity.name} successfully updated"
     else
       render :edit
