@@ -9,6 +9,7 @@ class RewardsController < ApplicationController
     if @reward.save
       redirect_to user_url(current_user), notice: 'Gift card chosen, view your current progress below'
     else
+      flash[:alert] = "You've already chosen a gift card, click below to view your profile"
       render :new
     end
   end
