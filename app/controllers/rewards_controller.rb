@@ -1,6 +1,6 @@
 class RewardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_rewards, only: [:new, :index]
+  before_action :load_rewards, only: [:new, :create, :index]
   before_action :load_reward, only: [:edit, :update, :destroy]
 
   def new
