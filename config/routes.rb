@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show]
-  resources :rewards, only: [:new, :create]
+  resources :rewards, only: [:new, :create, :index, :edit, :update]
   resources :activities, only: [:new, :create, :index, :edit, :update, :destroy]
 end
