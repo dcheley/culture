@@ -1,5 +1,7 @@
+<%= link_to 'Add Reward', '/rewards/new', class:"link" %>
+
 <% @rewards.each do |r| %>
   <ul class="list">
-    <li><%= link_to r.name, "/activities/#{r.id}/edit", class:"link" %></li>
+    <br /><li><%= link_to r.name, "/rewards/#{r.id}/edit", class:"link" %></li>
   </ul>
 <% end %>

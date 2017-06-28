@@ -3,6 +3,7 @@ class RewardsController < ApplicationController
   before_action :load_rewards, only: [:new, :index]
 
   def new
+    @reward = Reward.new
   end
 
   def create
