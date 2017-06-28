@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :rewards, only: [:new, :create, :index, :edit, :update]
-  resources :activities, only: [:new, :create, :index, :edit, :update, :destroy]
+  resources :activities, only: [:new, :create, :show, :index, :edit, :update, :destroy]
 end
