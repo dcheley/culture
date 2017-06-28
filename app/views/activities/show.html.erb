@@ -1,0 +1,14 @@
+<h1 class="home-header"><%= @activity.name %></h1>
+
+<p class="home-text"><%= @activity.description %></p>
+
+<p class="home-text"><b>Task 1:</b> <%= @activity.task_one %></p>
+<p class="home-text"><b>Task 2:</b> <%= @activity.task_two %></p>
+<p class="home-text"><b>Task 3:</b> <%= @activity.task_three %></p>
+<p class="home-text"><b>Task 4:</b> <%= @activity.task_four %></p>
+<p class="home-text"><b>Task 5:</b> <%= @activity.task_five %></p>
+
+<%= form_for(@activity) do |f| %>
+  <%= f.hidden_field :status, value: 1 %>
+  <%= f.submit 'Complete Activity', class:"submit" %>
+<% end %>

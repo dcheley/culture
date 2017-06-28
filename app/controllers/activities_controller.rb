@@ -26,8 +26,11 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    if @activity.update_attributes(activity_params)
+    if @activity.update_attributes(activity_params) && @activity.status != 1
       redirect_to '/activities', notice: "#{@activity.name} successfully updated"
+    elsif @activity.update_attributes(activity_params) && @activity.status == 1
+      # current_user.reward.update_attributes(award: @activity.prize)
+      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} completed! You've been award @activity.prize"
     else
       render :edit
     end
