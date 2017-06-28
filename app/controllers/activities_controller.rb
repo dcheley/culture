@@ -1,4 +1,7 @@
 class ActivitiesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :load_activity, only: [:new, :edit]
+
   def new
   end
 
@@ -18,6 +21,10 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
+  def load_activity
+    @activity = Activity.find(params[:id])
+  end
 
   def activity_params
     params.require(:activity).permit(:name, :description, :status, :task_one,
