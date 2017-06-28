@@ -2,14 +2,19 @@ class RewardsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @rewards = Reward.all
   end
 
   def create
     @reward = Reward.new(reward_params)
-    if @reward.save
+    if @reward.save && @reward.user_id != nil
       redirect_to user_url(current_user), notice: 'Gift card chosen, view your current progress below'
-    else
+    elsif @reward.save != true && @reward.user_id != nil
       flash[:alert] = "You've already chosen a gift card, click below to view your profile"
+      render :new
+    elsif @reward.save && @reward.user_id == nil
+      redirect_to '/rewards', notice: "Reward successfully created"
+    else
       render :new
     end
   end
