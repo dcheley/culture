@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_activity, only: [:new, :edit]
+  before_action :load_activity, only: [:edit, :update, :destroy]
 
   def new
     @activity = Activity.new
@@ -16,15 +16,23 @@ class ActivitiesController < ApplicationController
   end
 
   def index
+    @activities = Activity.all.order("name DESC")
   end
 
   def edit
   end
 
   def update
+    if @activity.update_attributes
+      redirect_to '/activities', notice: "#{@activity.name} successfully updated"
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @activity.destroy
+    redirect_to '/activities', notice: "#{@activity.name} successfully deleted"
   end
 
   private
