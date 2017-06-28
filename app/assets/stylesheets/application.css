@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   text-align: center;
+ }
+
 .notice {
   color: blue;
   text-align: center;
@@ -20,20 +24,20 @@
 
 .alert {
   color: red;
-  text-align: center;
 }
 
 .home-title {
-  text-align: center;
 }
 
 .home-header {
+}
+
+.third {
   float: left;
   width: 33%;
 }
 
 .form-container {
-  text-align: center;
 }
 
 .field {
@@ -47,7 +51,6 @@
 }
 
 .link-wrap {
-  text-align: center;
 }
 
 .bottom-link {
