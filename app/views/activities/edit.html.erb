@@ -1,3 +1,5 @@
 <h1 class="home-header">Edit & Reassign an Activity</h1>
 
-<%= render 'activity_form' %>
+<%= render 'activity_form' %><br />
+
+<%= button_to 'Delete', @activity, method: :delete, data: {confirm: "Are you sure?"} %>
