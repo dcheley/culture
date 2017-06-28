@@ -25,7 +25,7 @@ class RewardsController < ApplicationController
   private
 
   def load_rewards
-    @reward = Reward.all
+    @rewards = Reward.all
   end
 
   def reward_params
