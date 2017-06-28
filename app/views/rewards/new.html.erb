@@ -8,41 +8,10 @@
 <h1 class="home-title">Please Choose a Gift Card</h1>
 
 <div class="form-container">
-  <%= button_to 'Starbucks', {controller: :rewards, action: :create,
-      reward: {name: 'Starbucks', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Home Depot', {controller: :rewards, action: :create,
-      reward: {name: 'Home Depot', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Cineplex', {controller: :rewards, action: :create,
-      reward: {name: :Starbucks, user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to "Cara (Kelsey's, Milestones, Montana's, East Side Mario's)", {controller: :rewards, action: :create,
-      reward: {name: 'Cara', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Petro Canada', {controller: :rewards, action: :create,
-      reward: {name: 'Petro Canada', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Canadian Tire', {controller: :rewards, action: :create,
-      reward: {name: 'Canadian Tire', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Subway', {controller: :rewards, action: :create,
-      reward: {name: 'Subway', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Apple', {controller: :rewards, action: :create,
-      reward: {name: 'Apple', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Indigo', {controller: :rewards, action: :create,
-      reward: {name: 'Indigo', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'The Keg', {controller: :rewards, action: :create,
-      reward: {name: 'The Keg', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Golf Town', {controller: :rewards, action: :create,
-      reward: {name: 'Golf Town', user_id: current_user.id, award: 0}} %><br />
-
-  <%= button_to 'Boston Pizza', {controller: :rewards, action: :create,
-      reward: {name: 'Boston Pizza', user_id: current_user.id, award: 0}} %><br />
+  <% @rewards.where(user_id: nil).each do |r| %>
+    <%= button_to "#{r.name}", {controller: :rewards, action: :create,
+      reward: {name: "#{r.name}", user_id: current_user.id, award: 0}} %><br />
+  <% end %>
 </div>
 <!-- Admin User View  -->
-<!--  form_for(@reward) -->
+<!--  <%= render 'reward_form' %> -->
