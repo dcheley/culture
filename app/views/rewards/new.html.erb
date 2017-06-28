@@ -1,9 +1,7 @@
 <!-- Normal User View  -->
 <% if current_user.admin != 1 %>
   <% if flash[:alert] %>
-    <div class="link-wrap">
-      <%= link_to 'Profile', "/users/#{current_user.id}" %>
-    </div>
+    <%= link_to 'Profile', "/users/#{current_user.id}", class:"link" %>
   <% end %>
 
   <h1 class="home-title">Please Choose a Gift Card</h1>
