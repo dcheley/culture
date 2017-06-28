@@ -1,8 +1,8 @@
 class RewardsController < ApplicationController
   before_action :authenticate_user!
+  before_action :load_rewards, only: [:new, :index]
 
   def new
-    @rewards = Reward.all
   end
 
   def create
@@ -19,10 +19,13 @@ class RewardsController < ApplicationController
     end
   end
 
+  def index
+  end
+
   private
 
-  def load_reward
-    @reward = Reward.find(params[:id])
+  def load_rewards
+    @reward = Reward.all
   end
 
   def reward_params
