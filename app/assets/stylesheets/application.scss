@@ -8,6 +8,10 @@
    text-decoration: none;
  }
 
+ .navbar {
+   background-color: #151B54;
+ }
+
  #blue {
    background-color: blue;
    color: white;
@@ -26,11 +30,17 @@
    color: darkblue;
  }
 
- .nav-link {
+ .nav-link,
+ .active {
    list-style: none;
    display: inline;
-   margin: 15px;
+   margin: 30px;
+   line-height: 50px;
  }
+
+.active a {
+  color: white;
+}
 
 .notice {
   color: blue;
