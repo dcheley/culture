@@ -9,7 +9,8 @@
   <div class="form-container">
     <% @rewards.where(user_id: nil).each do |r| %>
       <%= button_to "#{r.name}", {controller: :rewards, action: :create,
-        reward: {name: "#{r.name}", user_id: current_user.id, award: 0}} %><br />
+        reward: {name: "#{r.name}", user_id: current_user.id, award: 0}},
+        class:"submit", id:"blue" %><br />
     <% end %>
   </div>
 

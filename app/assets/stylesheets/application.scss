@@ -12,8 +12,20 @@
    background-color: #151B54;
  }
 
+.submit,
+.delete {
+  border: none;
+  color: white;
+  padding: 15px 28px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 18px;
+}
+
  #blue {
-   background-color: blue;
+   background-color: #337ab7;
    color: white;
  }
 
@@ -21,6 +33,23 @@
    background-color: lightgreen;
    color: #0000FF;
  }
+
+ #red {
+   background-color: #e53935;
+   color: white;
+ }
+
+ #blue:hover {
+   background-color: darkblue;
+ }
+
+#green:hover {
+  background-color: green;
+}
+
+#red:hover {
+  background-color: red;
+}
 
  .link {
    text-decoration: none;
