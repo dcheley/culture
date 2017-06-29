@@ -1,20 +1,32 @@
 <h1 class="home-title">Welcome</h1>
 
 <div class="third">
-  <p class="home-header">Activities Completed</p>
+  <h4 class="home-header">Activities Completed</h4>
     <% @activities.where(status: 1).each do |c| %>
-      <li class="activity-items"><%= link_to c.name, "/activities/#{c.id}", class:"link" %> <%= "($#{c.prize})"%></li>
+      <%= link_to "/activities/#{c.id}" do %>
+      <li class="activity-items">
+        <div class="circle" id="blue">
+          <p class="circle-text"><%= c.name + " ($#{c.prize})" %></p>
+        </div>
+      </li>
+      <% end %>
     <% end %>
 </div>
 
 <div class="third">
-  <p class="home-header">Gift Card $$$ Awarded</p>
+  <h4 class="home-header">Gift Card $$$ Awarded</h4>
   <b><%= @reward.name %>:</b> <%= @reward.award %>
 </div>
 
 <div class="third">
-  <p class="home-header">Activities to be Completed</p>
+  <h4 class="home-header">Activities to be Completed</h4>
   <% @activities.where(status: nil).each do |a| %>
-    <li class="activity-items"><%= link_to a.name, "/activities/#{a.id}", class:"link" %></li>
+    <%= link_to "/activities/#{a.id}" do %>
+      <li class="activity-items">
+        <div class="circle" id="green">
+          <p class="circle-text"><%= a.name %></p>
+        </div>
+      </li>
+    <% end %>
   <% end %>
 </div>

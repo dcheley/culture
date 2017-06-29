@@ -4,15 +4,26 @@
    text-align: center;
  }
 
+ a:hover {
+   text-decoration: none;
+ }
+
+ #blue {
+   background-color: blue;
+   color: white;
+ }
+
+ #green {
+   background-color: lightgreen;
+   color: #0000FF;
+ }
+
  .link {
    text-decoration: none;
  }
 
  .link:hover {
    color: darkblue;
- }
-
- .link-wrap {
  }
 
  .nav-link {
@@ -30,11 +41,9 @@
   color: red;
 }
 
-.home-title {
-}
+.home-title {}
 
-.home-header {
-}
+.home-header {}
 
 .third {
   float: left;
@@ -48,8 +57,11 @@
   padding: 0;
 }
 
-.form-container {
-}
+.form-container {}
+
+.fied-label {}
+
+.field-input {}
 
 .field {
   margin-top: 15px;
@@ -63,4 +75,17 @@
 
 .activity-items {
   list-style: none;
+}
+
+.circle {
+  margin: auto;
+	width: 150px;
+	height: 150px;
+	-moz-border-radius: 75px;
+	-webkit-border-radius: 75px;
+	border-radius: 75px;
+}
+
+.circle-text {
+  padding-top: 35%;
 }
