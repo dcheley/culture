@@ -2,15 +2,15 @@
 
 <div class="third">
   <h4 class="home-header">Activities Completed</h4>
-    <% @activities.where(status: 1).each do |c| %>
-      <%= link_to "/activities/#{c.id}" do %>
+  <% @activities.where(status: 1).each do |c| %>
+    <%= link_to "/activities/#{c.id}" do %>
       <li class="activity-items">
         <div class="circle" id="blue">
           <p class="circle-text"><%= c.name + " ($#{c.prize})" %></p>
         </div>
       </li>
-      <% end %>
     <% end %>
+  <% end %>
 </div>
 
 <div class="third">
