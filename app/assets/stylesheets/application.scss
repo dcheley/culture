@@ -43,7 +43,9 @@
 
 .home-title {}
 
-.home-header {}
+.home-header {
+  margin-bottom: 30px;
+}
 
 .third {
   float: left;
@@ -88,4 +90,15 @@
 
 .circle-text {
   padding-top: 35%;
+}
+
+.square {
+  margin: auto;
+	width: 200px;
+	height: 100px;
+	background: #737CA1;
+}
+
+.square-text {
+  padding-top: 15%;
 }
