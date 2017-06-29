@@ -2,6 +2,9 @@
 
 <div class="third">
   <p class="home-header">Activities Completed</p>
+    <% @activities.where(status: 1).each do |c| %>
+      <li class="activity-items"><%= link_to c.name, "/activities/#{c.id}", class:"link" %> <%= "($#{c.prize})"%></li>
+    <% end %>
 </div>
 
 <div class="third">
@@ -11,7 +14,7 @@
 
 <div class="third">
   <p class="home-header">Activities to be Completed</p>
-  <% @activities.each do |a| %>
+  <% @activities.where(status: nil).each do |a| %>
     <li class="activity-items"><%= link_to a.name, "/activities/#{a.id}", class:"link" %></li>
   <% end %>
 </div>

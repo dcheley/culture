@@ -26,11 +26,14 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    if @activity.update_attributes(activity_params) && @activity.status != 1
+    if @activity.update_attributes(activity_params) && current_user.admin == 1
       redirect_to '/activities', notice: "#{@activity.name} successfully updated"
     elsif @activity.update_attributes(activity_params) && @activity.status == 1
-      # current_user.reward.update_attributes(award: @activity.prize)
-      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} completed! You've been award @activity.prize"
+      current_user.reward.update_attributes(award: current_user.reward.award + @activity.prize)
+      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} completed! You've been awarded #{@activity.prize}"
+    elsif @activity.update_attributes(activity_params) && @activity.status != 1
+      current_user.reward.update_attributes(award: current_user.reward.award - @activity.prize)
+      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} marked incomplete"
     else
       render :edit
     end
@@ -49,6 +52,6 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:name, :description, :status, :task_one,
-    :task_two, :task_three, :task_four, :task_five, :reward_id)
+    :task_two, :task_three, :task_four, :task_five, :reward_id, :prize)
   end
 end

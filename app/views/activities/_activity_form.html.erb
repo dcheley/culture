@@ -10,9 +10,16 @@
 
   <% end %>
 
+  <%= f.hidden_field :status, value: nil %>
+
   <div class="field">
     <%= f.label :reward_id, "Enter a profile ID # here to assign activity", class:"field-label" %>
     <%= f.number_field :reward_id, class:"field-input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prize, "Prize ($)", class:"field-label" %>
+    <%= f.number_field :prize, class:"field-input", step: 0.01 %>
   </div>
 
   <div class="field">

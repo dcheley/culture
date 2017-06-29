@@ -8,7 +8,14 @@
 <p class="home-text"><b>Task 4:</b> <%= @activity.task_four %></p>
 <p class="home-text"><b>Task 5:</b> <%= @activity.task_five %></p>
 
-<%= form_for(@activity) do |f| %>
-  <%= f.hidden_field :status, value: 1 %>
-  <%= f.submit 'Complete Activity', class:"submit" %>
+<% if @activity.status != 1 %>
+  <%= form_for(@activity) do |f| %>
+    <%= f.hidden_field :status, value: 1 %>
+    <%= f.submit 'Complete Activity', class:"submit" %>
+  <% end %>
+<% else %>
+  <%= form_for(@activity) do |f| %>
+    <%= f.hidden_field :status, value: nil %>
+    <%= f.submit 'Mark Incomplete', class:"submit" %>
+  <% end %>
 <% end %>
