@@ -11,11 +11,11 @@
 <% if @activity.status != 1 %>
   <%= form_for(@activity) do |f| %>
     <%= f.hidden_field :status, value: 1 %>
-    <%= f.submit 'Complete Activity', class:"submit" %>
+    <%= f.submit 'Complete Activity', class:"submit", id:"blue" %>
   <% end %>
 <% else %>
   <%= form_for(@activity) do |f| %>
     <%= f.hidden_field :status, value: nil %>
-    <%= f.submit 'Mark Incomplete', class:"submit" %>
+    <%= f.submit 'Mark Incomplete', class:"submit", id:"red" %>
   <% end %>
 <% end %>
