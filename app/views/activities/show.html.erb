@@ -2,11 +2,11 @@
 
 <p class="home-text"><%= @activity.description %></p>
 
-<p class="home-text"><b>Task 1:</b> <%= @activity.task_one %></p>
-<p class="home-text"><b>Task 2:</b> <%= @activity.task_two %></p>
-<p class="home-text"><b>Task 3:</b> <%= @activity.task_three %></p>
-<p class="home-text"><b>Task 4:</b> <%= @activity.task_four %></p>
-<p class="home-text"><b>Task 5:</b> <%= @activity.task_five %></p>
+<p class="home-text"><b>Goal 1:</b> <%= @activity.task_one %></p>
+<p class="home-text"><b>Goal 2:</b> <%= @activity.task_two %></p>
+<p class="home-text"><b>Goal 3:</b> <%= @activity.task_three %></p>
+<p class="home-text"><b>Goal 4:</b> <%= @activity.task_four %></p>
+<p class="home-text"><b>Goal 5:</b> <%= @activity.task_five %></p>
 
 <% if @activity.status != 1 %>
   <%= form_for(@activity) do |f| %>
