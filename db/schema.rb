@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629144726) do
+ActiveRecord::Schema.define(version: 20170630040955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.integer "reward_id"
+    t.string "reward_id"
     t.string "name"
     t.text "description"
     t.integer "status"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170629144726) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "prize", precision: 6, scale: 2
+    t.string "contact"
   end
 
   create_table "rewards", force: :cascade do |t|
