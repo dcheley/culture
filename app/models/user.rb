@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :reward
+  has_many :activities
+  has_many :feedbacks, through: :activities
 end

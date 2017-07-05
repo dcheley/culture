@@ -1,4 +1,4 @@
-<!-- Normal User View  -->
+<!-- Admin User View  -->
 <% if current_user.admin != 1 %>
   <% if flash[:alert] %>
     <%= link_to 'Profile', "/users/#{current_user.id}", class:"link" %>
@@ -14,7 +14,7 @@
     <% end %>
   </div>
 
-<!-- Admin User View  -->
+<!-- Normal User View  -->
 <% else %>
   <%= render 'reward_form' %>
 <% end %>
