@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reward = Reward.find_by(user_id: @user.id)
-    @activities = Activity.where(user_id: @user.email)
+    @reward = @user.reward
+    @activities = @user.activities
   end
 end
