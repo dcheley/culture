@@ -9,11 +9,14 @@ class RewardsController < ApplicationController
 
   def create
     @reward = Reward.new(reward_params)
-    if @reward.save && @reward.user_id != nil
+    if @reward.save && @reward.user_id != nil && @reward.name != "Progress"
       redirect_to user_url(current_user), notice: 'Gift card chosen, view your current progress below'
-    elsif @reward.save != true && @reward.user_id != nil
+    elsif @reward.save != true && @reward.user_id != nil && @reward.name != "Progress"
       flash[:alert] = "You've already chosen a gift card, click below to view your profile"
       render :new
+      # Temporary use of name as condition because we may fall back on Gift Card reward system
+    elsif @reward.save && @reward.user_id != nil && @reward.name == "Progress"
+      redirect_to user_url(current_user), notice: 'Welcome, view your tasks & progress below'
     elsif @reward.save && @reward.user_id == nil
       redirect_to '/rewards', notice: "Reward successfully created"
     else

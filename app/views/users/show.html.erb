@@ -16,7 +16,7 @@
 <div class="third">
   <h4 class="home-header">Gift Card $$$ Awarded</h4>
   <div class="square">
-    <p class="square-text"><b><%= @reward.name %>:</b> $<%= @reward.award %></p>
+    <p class="square-text"><b><%= @reward.name %>:</b> <%= "#{@reward.award.to_int}/#{@user.activities.count}" %></p>
   </div>
 </div>
 

@@ -34,7 +34,8 @@
   </p>
 
   <div class="link-wrap">
-  <!-- TODO Use if helper to display user#show link if user.reward != nil -->
-    <%= link_to 'Click Here to get Started', 'rewards/new', class:'link' %>
+    <%= button_to "Click here to get started", {controller: :rewards, action: :create,
+        reward: {name: "Progress", user_id: current_user.id, award: 0}},
+        class:"submit", id:"blue" %><br />
   </div>
 <% end %>
