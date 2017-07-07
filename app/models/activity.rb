@@ -2,8 +2,6 @@ class Activity < ApplicationRecord
   belongs_to :user, optional: true, :foreign_key => :user_id, :primary_key => :email
   belongs_to :feedback, optional: true
 
-  accepts_nested_attributes_for :feedback
-
   validates :name, presence: true
   validates :user_id, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => [:create, :update] }
   validates :contact, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => [:create, :update] }, allow_blank: true

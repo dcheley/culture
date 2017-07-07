@@ -4,6 +4,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
     respond_to do |format|
       if @feedback.save
+        @activity.update_attributes(feedback_id: @feedback.id)
         format.html { redirect_to activity_url(@activity) }
         format.json { render json: @activity, status: :created, location: @activity }
       else
@@ -14,7 +15,7 @@ class FeedbacksController < ApplicationController
   end
 
   def update
-    @activity = Activity.find_by(user_id: current_user.email)
+    @activity = Activity.find(params[:activity_id])
     @feedback = @activity.feedback
     respond_to do |format|
       if @feedback.update_attributes(feedback_params)
