@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :first_takeaway, class:"field-label" %>
     <%= f.text_field :first_takeaway, class:"field-input" %>
-    <% if @feedback.first_takeaway != nil %>
+    <% if @feedback.first_takeaway.present? %>
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
     <% end %>
   </div><br />
@@ -22,7 +22,7 @@
   <div class="field">
     <%= f.label :second_takeaway, class:"field-label" %>
     <%= f.text_field :second_takeaway, class:"field-input" %>
-    <% if @feedback.second_takeaway != nil %>
+    <% if @feedback.second_takeaway.present? %>
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
     <% end %>
   </div><br />
@@ -30,7 +30,7 @@
   <div class="field">
     <%= f.label :third_takeaway, class:"field-label" %>
     <%= f.text_field :third_takeaway, class:"field-input" %>
-    <% if @feedback.third_takeaway != nil %>
+    <% if @feedback.third_takeaway.present? %>
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
     <% end %>
   </div><br />
@@ -38,7 +38,7 @@
   <div class="field">
     <%= f.label :fourth_takeaway, class:"field-label" %>
     <%= f.text_field :fourth_takeaway, class:"field-input" %>
-    <% if @feedback.fourth_takeaway != "" || nil %>
+    <% if @feedback.fourth_takeaway.present? %>
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
     <% end %>
   </div><br />
@@ -46,7 +46,7 @@
   <div class="field">
     <%= f.label :fifth_takeaway, class:"field-label" %>
     <%= f.text_field :fifth_takeaway, class:"field-input" %>
-    <% if @feedback.fifth_takeaway != nil %>
+    <% if @feedback.fifth_takeaway.present? %>
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
     <% end %>
   </div><br />
