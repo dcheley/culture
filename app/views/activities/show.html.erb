@@ -1,6 +1,6 @@
 <h1 class="home-header"><%= @activity.name %></h1>
 
-<p class="home-text"><%= @activity.description %></p>
+<p class="home-text" id="paragraph"><%= @activity.description %></p>
 
 <p class="home-text"><b>Question 1:</b> <%= @activity.task_one %></p>
 <p class="home-text"><b>Question 2:</b> <%= @activity.task_two %></p>
@@ -8,7 +8,7 @@
 <p class="home-text"><b>Question 4:</b> <%= @activity.task_four %></p>
 <p class="home-text"><b>Question 5:</b> <%= @activity.task_five %></p>
 
-<h1 class="home-header">What are some of your key takeaways from this task?</h1>
+<h1 class="home-header">Answer below:</h1>
 
 <%= form_for([@activity, @feedback]) do |f| %>
   <div class="field">
