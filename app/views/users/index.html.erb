@@ -34,8 +34,12 @@
   </p>
 
   <div class="link-wrap">
-    <%= button_to "Click here to get started", {controller: :rewards, action: :create,
-        reward: {name: "Progress", user_id: current_user.id, award: 0}},
-        class:"submit", id:"blue" %><br />
+    <% if current_user.reward == nil %>
+      <%= button_to "Click here to get started", {controller: :rewards, action: :create,
+          reward: {name: "Progress", user_id: current_user.id, award: 0}},
+          class:"submit", id:"blue" %><br />
+    <% else %>
+      <%= link_to "PROFILE", user_url(current_user), class:"submit", id:"blue" %>
+    <% end %>
   </div>
 <% end %>
