@@ -5,12 +5,12 @@
 
     <p class="progress-text">Completed Activities:</p>
     <% u.activities.where(status: 1).each do |a| %>
-      <%= a.name %>
+      <p class="details"><%= a.name %></p>
     <% end %>
 
     <p class="progress-text">Feedback given:</p>
     <% u.feedbacks.each do |f| %>
-      <%= f.first_takeaway %>
+      <p class="details"><%= f.first_takeaway %></p>
     <% end %>
   <% end %>
 
