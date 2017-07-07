@@ -10,47 +10,35 @@
 
 <h1 class="home-header">What are some of your key takeaways from this task?</h1>
 
-<%= form_for([@activity, @feedback]) do |f| %>
-  <% if @feedback.errors.any? %>
-    <h2 class="error-header"><%= pluralize(@feedback.errors.count, "error") %> occurred!</h2>
+<%= form_for(@activity) do |f| %>
+  <%= f.hidden_field :feedback_id, value: @feedback.id %>
 
-    <ul class="error-list">
-      <% @feedback.errors.full_messages.each do |msg| %>
-        <li class="error-msg"><%= msg %></li>
-      <% end %>
-    </ul>
+  <%= fields_for :feedback, @feedback do |u| %>
+    <div class="field">
+      <%= u.label :first_takeaway, class:"field-label" %>
+      <%= u.text_field :first_takeaway, class:"field-input" %>
+    </div><br />
 
+    <div class="field">
+      <%= u.label :second_takeaway, class:"field-label" %>
+      <%= u.text_field :second_takeaway, class:"field-input" %>
+    </div><br />
+
+    <div class="field">
+      <%= u.label :third_takeaway, class:"field-label" %>
+      <%= u.text_field :third_takeaway, class:"field-input" %>
+    </div><br />
+
+    <div class="field">
+      <%= u.label :fourth_takeaway, class:"field-label" %>
+      <%= u.text_field :fourth_takeaway, class:"field-input" %>
+    </div><br />
+
+    <div class="field">
+      <%= u.label :fifth_takeaway, class:"field-label" %>
+      <%= u.text_field :fifth_takeaway, class:"field-input" %>
+    </div><br />
   <% end %>
-
-  <div class="field">
-    <%= f.label :first_takeaway, class:"field-label" %>
-    <%= f.text_field :first_takeaway, class:"field-input" %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :second_takeaway, class:"field-label" %>
-    <%= f.text_field :second_takeaway, class:"field-input" %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :third_takeaway, class:"field-label" %>
-    <%= f.text_field :third_takeaway, class:"field-input" %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :fourth_takeaway, class:"field-label" %>
-    <%= f.text_field :fourth_takeaway, class:"field-input" %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :fifth_takeaway, class:"field-label" %>
-    <%= f.text_field :fifth_takeaway, class:"field-input" %>
-  </div><br />
-
-  <!-- <%= fields_for :activity, @activity do |u| %>
-    <%= u.hidden_field :feedback_id, value: @feedback.id %>
-  <% end %> -->
-
   <%= f.submit "SEND FEEDBACK", class:"submit", id:"blue" %>
 <% end %>
 

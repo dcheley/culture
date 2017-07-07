@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :activities, only: [:new, :create, :show, :index, :edit, :update, :destroy]
   resources :feedbacks, only: [:destroy]
   resources :activities do
-    resources :feedbacks, only: [:create]
+    resources :feedbacks, only: [:create, :update]
   end
 end

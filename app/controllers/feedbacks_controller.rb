@@ -4,9 +4,22 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
     respond_to do |format|
       if @feedback.save
-        @activity.update_attributes(feedback_id: @feedback.id)
         format.html { redirect_to activity_url(@activity) }
         format.json { render json: @activity, status: :created, location: @activity }
+      else
+        format.html { render activity_url(@activity) }
+        format.json { render json: @feedback.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @activity = Activity.find_by(user_id: current_user.email)
+    @feedback = @activity.feedback
+    respond_to do |format|
+      if @feedback.update_attributes(feedback_params)
+        format.html { redirect_to activity_url(@activity) }
+        format.json { render json: @activity, status: :updated, location: @activity }
       else
         format.html { render activity_url(@activity) }
         format.json { render json: @feedback.errors, status: :unprocessable_entity }
