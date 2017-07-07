@@ -16,6 +16,11 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    if @activity.feedback == nil
+      @feedback = Feedback.new
+    else
+      @feedback = @activity.feedback
+    end
   end
 
   def index

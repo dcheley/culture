@@ -1,14 +1,16 @@
 class FeedbacksController < ApplicationController
-  def new
-    @feedback = Feedback.new
-  end
-
   def create
+    @activity = Activity.find_by(user_id: current_user.email)
     @feedback = Feedback.new(feedback_params)
-    if @feedback.save
-      redirect_to user_url(current_user), notice:"Feedback successfully sent"
-    else
-      render :new
+    respond_to do |format|
+      if @feedback.save
+        @activity.update_attributes(feedback_id: @feedback.id)
+        format.html { redirect_to activity_url(@activity) }
+        format.json { render json: @activity, status: :created, location: @activity }
+      else
+        format.html { render activity_url(@activity) }
+        format.json { render json: @feedback.errors, status: :unprocessable_entity }
+      end
     end
   end
 
