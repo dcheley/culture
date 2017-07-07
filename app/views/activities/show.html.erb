@@ -16,25 +16,45 @@
     <%= f.text_field :first_takeaway, class:"field-input" %>
   </div><br />
 
+  <% if @feedback.first_takeaway != nil %>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  <% end %>
+
   <div class="field">
     <%= f.label :second_takeaway, class:"field-label" %>
     <%= f.text_field :second_takeaway, class:"field-input" %>
   </div><br />
+
+  <% if @feedback.second_takeaway != nil %>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  <% end %>
 
   <div class="field">
     <%= f.label :third_takeaway, class:"field-label" %>
     <%= f.text_field :third_takeaway, class:"field-input" %>
   </div><br />
 
+  <% if @feedback.third_takeaway != nil %>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  <% end %>
+
   <div class="field">
     <%= f.label :fourth_takeaway, class:"field-label" %>
     <%= f.text_field :fourth_takeaway, class:"field-input" %>
   </div><br />
 
+  <% if @feedback.fourth_takeaway != nil || @feedback.fourth_takeaway != "" %>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  <% end %>
+
   <div class="field">
     <%= f.label :fifth_takeaway, class:"field-label" %>
     <%= f.text_field :fifth_takeaway, class:"field-input" %>
   </div><br />
+
+  <% if @feedback.fifth_takeaway != nil %>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  <% end %><br
 
   <%= f.submit "SAVE ANSWERS", class:"submit", id:"green" %>
 <% end %>

@@ -24,7 +24,7 @@
     By completing the integration activities you will become more acquainted with
     your new coworkers and you will gain a deeper understanding of the
     organizational culture in the Corporate Services Division.
-   </p>
+  </p>
 
   <p class="welcome-text">
     For each activity you complete, you will be rewarded with money towards a gift
@@ -36,7 +36,7 @@
   <div class="link-wrap">
     <% if current_user.reward == nil %>
       <%= button_to "Click here to get started", {controller: :rewards, action: :create,
-          reward: {name: "Progress", user_id: current_user.id, award: 0}},
+          reward: { name: "Progress", user_id: current_user.id, award: 0 }},
           class:"submit", id:"blue" %><br />
     <% else %>
       <%= link_to "PROFILE", user_url(current_user), class:"submit", id:"blue" %>
