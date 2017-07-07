@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
     respond_to do |format|
       if @feedback.save
         @activity.update_attributes(feedback_id: @feedback.id)
-        format.html { redirect_to activity_url(@activity) }
+        format.html { redirect_to activity_url(@activity), notice:"Feedback sent" }
         format.json { render json: @activity, status: :created, location: @activity }
       else
         format.html { render activity_url(@activity) }
@@ -19,7 +19,7 @@ class FeedbacksController < ApplicationController
     @feedback = @activity.feedback
     respond_to do |format|
       if @feedback.update_attributes(feedback_params)
-        format.html { redirect_to activity_url(@activity) }
+        format.html { redirect_to activity_url(@activity), notice:"Feedback updated" }
         format.json { render json: @activity, status: :updated, location: @activity }
       else
         format.html { render activity_url(@activity) }
