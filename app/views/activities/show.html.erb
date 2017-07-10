@@ -52,7 +52,11 @@
   </div><br />
 
   <%= f.submit "SAVE ANSWERS", class:"submit", id:"green" %>
+
+  <%= link_to "BACK", user_url(current_user), class:"submit", id:"green" %>
 <% end %>
+
+
 
 <% if @activity.status != 1 %>
   <%= form_for(@activity) do |f| %>
