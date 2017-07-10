@@ -56,21 +56,21 @@
   background-color: red;
 }
 
- .link {
-   color: #00796b;
-   text-decoration: none;
+.link {
+  color: #00796b;
+  text-decoration: none;
  }
 
- .link:hover {
-   color: #004d40;
+.link:hover {
+  color: #004d40;
  }
 
- .nav-link,
- .active {
-   list-style: none;
-   display: inline;
-   margin: 30px;
-   line-height: 50px;
+.nav-link,
+.active {
+  list-style: none;
+  display: inline;
+  margin: 30px;
+  line-height: 50px;
  }
 
 .active a {
@@ -90,6 +90,7 @@
 .home-title {}
 
 .home-header {
+  font-weight: bold;
   margin-bottom: 30px;
 }
 
@@ -148,6 +149,8 @@
 
 .circle-text {
   padding-top: 35%;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .square {

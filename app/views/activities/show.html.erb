@@ -1,4 +1,4 @@
-<h1 class="home-header"><%= @activity.name %></h1>
+<h3 class="home-header"><%= @activity.name %></h3>
 
 <p class="home-text" id="paragraph"><%= @activity.description %></p>
 
@@ -8,7 +8,7 @@
 <p class="home-text"><b>Question 4:</b> <%= @activity.task_four %></p>
 <p class="home-text"><b>Question 5:</b> <%= @activity.task_five %></p>
 
-<h1 class="home-header">Answer below:</h1>
+<h3 class="home-header">Answer below:</h3>
 
 <%= form_for([@activity, @feedback]) do |f| %>
   <div class="field">
