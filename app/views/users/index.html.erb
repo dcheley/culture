@@ -4,11 +4,13 @@
     <b><%= u.email %>'s</b> progress & feedback:
 
     <p class="progress-text">Completed Activities:</p>
+    <!-- Display all of user's completed activities -->
     <% u.activities.where(status: 1).each do |a| %>
       <p class="details"><%= a.name %></p>
     <% end %>
 
     <p class="progress-text">Feedback given:</p>
+    <!-- Display all of user's sent feedback -->
     <% u.feedbacks.each do |f| %>
       <p class="details"><%= f.first_takeaway %></p>
     <% end %>
@@ -34,6 +36,7 @@
   </p>
 
   <div class="link-wrap">
+    <!-- Using create button because of potential Gift Card feature -->
     <% if current_user.reward == nil %>
       <%= button_to "Click here to get started", {controller: :rewards, action: :create,
           reward: { name: "Progress", user_id: current_user.id, award: 0 }},
