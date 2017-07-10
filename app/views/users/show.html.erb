@@ -1,4 +1,6 @@
-<div class="third">
+<h1 class="home-header"><b><%= "#{@reward.award.to_int}/#{@user.activities.count}" %></b></h1>
+
+<div class="half">
   <h5 class="home-header">Activities to be Completed</h5>
   <% @activities.where("status IS ? OR status != ?", nil, 1).each do |a| %>
     <%= link_to "/activities/#{a.id}" do %>
@@ -11,14 +13,7 @@
   <% end %>
 </div>
 
-<div class="third">
-  <h5 class="home-header">Current Progress</h5>
-  <div class="square">
-    <p class="square-text"><b><%= "#{@reward.award.to_int}/#{@user.activities.count}" %></b></p>
-  </div>
-</div>
-
-<div class="third">
+<div class="half">
   <h5 class="home-header">Activities Completed</h5>
   <% @activities.where(status: 1).each do |c| %>
     <%= link_to "/activities/#{c.id}" do %>
