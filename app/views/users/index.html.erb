@@ -50,31 +50,28 @@
 
 <!-- Normal User View -->
 <% else %>
-  <h1 class="home-title">Welcome to the CSD</h1>
+  <h1 class="home-title">Welcome to the Organization</h1>
 
-  <p class="welcome-text">This is your employee onboarding challenge!</p>
+  <p class="welcome-text">This is Shape, your employee integration application!</p>
 
   <p class="welcome-text">
-    By completing the integration activities you will become more acquainted with
-    your new coworkers and you will gain a deeper understanding of the
-    organizational culture in the Corporate Services Division.
+    The app will provide you with integration activities so that  gain a deeper
+    understanding of your workplace's culture and its employees.
   </p>
 
   <p class="welcome-text">
-    For each activity you complete, you will be rewarded with money towards a gift
-    card of your choosing. Upon completing all activities you will be rewarded the
-    total $20 gift card of your choosing. If you don't complete all of the
-    activities you will still be awarded for your progress!
+    In order to being learning about the common set of values, norms and behaviours
+    of your workplace, click the "Get Started" button below.
   </p>
 
   <div class="link-wrap">
     <!-- Using create button because of potential Gift Card feature -->
     <% if current_user.reward == nil %>
-      <%= button_to "Click here to get started", {controller: :rewards, action: :create,
+      <%= button_to "Get Started", {controller: :rewards, action: :create,
           reward: { name: "Progress", user_id: current_user.id, award: 0 }},
           class:"submit", id:"blue" %><br />
     <% else %>
-      <%= link_to "PROFILE", user_url(current_user), class:"submit", id:"blue" %>
+      <%= link_to "Get Started", user_url(current_user), class:"submit", id:"blue" %>
     <% end %>
   </div>
 <% end %>
