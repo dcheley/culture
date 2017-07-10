@@ -10,7 +10,7 @@
  }
 
  .navbar {
-   background-color: #151B54;
+  border: none;
  }
 
 .submit,
@@ -28,11 +28,15 @@
  #blue {
    background-color: #337ab7;
    color: white;
+   border-width: 2px;
  }
 
  #green {
-   background-color: lightgreen;
-   color: #0000FF;
+   background-color: #00796b;
+   color: white;
+   border-color: white;
+   border-style: solid;
+   border-width: 2px;
  }
 
  #red {
@@ -41,11 +45,11 @@
  }
 
  #blue:hover {
-   background-color: darkblue;
+   background-color: #0d47a1;
  }
 
 #green:hover {
-  background-color: green;
+  background-color: #004d40;
 }
 
 #red:hover {
@@ -53,11 +57,12 @@
 }
 
  .link {
+   color: #00796b;
    text-decoration: none;
  }
 
  .link:hover {
-   color: darkblue;
+   color: #004d40;
  }
 
  .nav-link,
@@ -69,7 +74,8 @@
  }
 
 .active a {
-  color: white;
+  border-bottom: 2px solid;
+  border-color: #00796b;
 }
 
 .notice {
@@ -133,11 +139,11 @@
 .circle {
   margin: auto;
   margin-top: 10px;
-	width: 150px;
-	height: 150px;
-	-moz-border-radius: 75px;
-	-webkit-border-radius: 75px;
-	border-radius: 75px;
+	width: 200px;
+	height: 200px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
 }
 
 .circle-text {

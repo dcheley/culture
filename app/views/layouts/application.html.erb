@@ -9,13 +9,13 @@
 
   <body>
     <% if user_signed_in? && current_user.admin == nil %>
-      <li class="nav-link"><%= link_to 'Logout', destroy_user_session_url, method: :delete, class:"link" %></li>
+      <li class="nav-link"><%= link_to 'LOGOUT', destroy_user_session_url, method: :delete, class:"link" %></li>
     <% elsif user_signed_in? && current_user.admin == 1 %>
       <nav class="navbar navbar-default">
-        <li class="nav-link"><%= link_to 'Logout', destroy_user_session_url, method: :delete, class:"link" %></li>
+        <li class="nav-link"><%= link_to 'LOGOUT', destroy_user_session_url, method: :delete, class:"link" %></li>
         <!-- <li class="<%= current_page?('/rewards') ? 'active' : 'nav-link' %>"><%= link_to 'Rewards', rewards_url, class:"link" %></li> -->
-        <li class="<%= current_page?('/activities') ? 'active' : 'nav-link' %>"><%= link_to 'Assign Activities', activities_url, class:"link" %></li>
-        <li class="<%= current_page?('/users') ? 'active' : 'nav-link' %>"><%= link_to 'Current Progress', users_url, class:"link" %></li>
+        <li class="<%= current_page?('/activities') ? 'active' : 'nav-link' %>"><%= link_to 'ASSIGN ACTIVITIES', activities_url, class:"link" %></li>
+        <li class="<%= current_page?('/users') ? 'active' : 'nav-link' %>"><%= link_to 'CURRENT PROGRESS', users_url, class:"link" %></li>
       </nav>
     <% end %>
 
