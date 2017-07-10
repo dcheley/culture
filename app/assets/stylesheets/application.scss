@@ -25,6 +25,12 @@
   border-radius: 18px;
 }
 
+.btn-default,
+.btn-default:hover {
+  border-color: white;
+  background-color: white;
+}
+
  #blue {
    background-color: #337ab7;
    color: white;
@@ -105,12 +111,6 @@
   padding: 0;
 }
 
-.form-container {}
-
-.fied-label {}
-
-.field-input {}
-
 .field {
   margin-top: 15px;
 }
@@ -119,11 +119,24 @@
   margin-left: 15%;
   margin-right: 15%;
   margin-bottom: 30px;
-  text-align: justify;
+}
+
+.progress-wrap {
+  text-align: left;
+  margin-left: 60px;
+  margin-right: 60px;
+  float: left;
 }
 
 .progress-text {
   margin: 15px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.details {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .welcome-text {
