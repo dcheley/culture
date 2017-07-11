@@ -11,7 +11,9 @@
           <%= render 'feedback-dropdown', a: a %>
           <p class="status">COMPLETE</p>
           <% if a.due_date != nil %>
-            <p class="status">(<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%m') %>)</p>
+            <p class="progress-date">
+              (<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%M') %>)
+            </p>
           <% end %>
         </div>
       <% end %>
@@ -21,7 +23,9 @@
           <%= render 'feedback-dropdown', a: a %>
           <p class="status">INCOMPLETE</p>
           <% if a.due_date != nil %>
-            <p class="status">(<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%m') %>)</p>
+            <p class="progress-date">
+              (<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%M') %>)
+            </p>
           <% end %>
         </div>
       <% end %>
