@@ -10,6 +10,9 @@
         <div class="dropdown">
           <%= render 'feedback-dropdown', a: a %>
           <p class="status">COMPLETE</p>
+          <% if a.due_date != nil %>
+            <p class="status">(<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%m') %>)</p>
+          <% end %>
         </div>
       <% end %>
       <!-- Display all of User's incomplete Activities with Feedback as Dropdown (if they exist) -->
@@ -17,6 +20,9 @@
         <div class="dropdown">
           <%= render 'feedback-dropdown', a: a %>
           <p class="status">INCOMPLETE</p>
+          <% if a.due_date != nil %>
+            <p class="status">(<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%m') %>)</p>
+          <% end %>
         </div>
       <% end %>
     </div>

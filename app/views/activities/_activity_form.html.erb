@@ -23,6 +23,12 @@
     <%= f.text_field :contact, placeholder:"example@email.com", class:"field-input" %>
   </div>
 
+  <div class="field">
+    <%= f.label :due_date, "Due Date", class:"field-label" %>
+    <%= f.date_select :due_date, class:"field-input" %>
+    <%= f.time_select :due_date, class:"field-input" %>
+  </div>
+
   <!-- <div class="field">
     <%= f.label :prize, "Prize ($)", class:"field-label" %>
     <%= f.number_field :prize, class:"field-input", step: 0.01 %>
