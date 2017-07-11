@@ -1,6 +1,6 @@
 <%= form_for(@activity) do |f| %>
   <% if @activity.errors.any? %>
-    <h2 class="error-header"><%= pluralize(@activity.errors.count, "error") %> occurred!</h2>
+    <h3 class="error-header"><%= pluralize(@activity.errors.count, "error") %> occurred!</h3>
 
     <ul class="error-list">
       <% @activity.errors.full_messages.each do |msg| %>
