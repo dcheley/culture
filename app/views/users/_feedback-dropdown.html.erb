@@ -1,0 +1,16 @@
+  <div style="display: inline;">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <div class="submit" id="blue"><p class="details"><%= a.name %></p></div>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdown1">
+      <p class="progress-text">Feedback given:</p>
+      <!-- Display feedback for current iteration of Activity -->
+      <% if a.feedback != nil %>
+        <p class="details">1) <%= a.feedback.first_takeaway %></p>
+        <p class="details">2) <%= a.feedback.second_takeaway %></p>
+        <p class="details">3) <%= a.feedback.third_takeaway %></p>
+        <p class="details">4) <%= a.feedback.fourth_takeaway %></p>
+        <p class="details">5) <%= a.feedback.fifth_takeaway %></p>
+      <% end %>
+    </ul>
+  </div>
