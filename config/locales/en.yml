@@ -30,4 +30,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      activity:
+        name: "Name of exercise"
+        contact: "Employee contact"
+        user_id: "New hire"
+    errors:
+      models:
+        activity:
+          attributes:
+            name:
+              blank: "is required"
+            contact:
+              invalid: "must be a valid email address"
+            user_id:
+              invalid: "must be a valid email address"
