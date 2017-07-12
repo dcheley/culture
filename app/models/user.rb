@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_one :reward
   has_many :activities, :foreign_key => :user_id, :primary_key => :email
   has_many :feedbacks, through: :activities
+  has_many :contents, through: :activities
 end
