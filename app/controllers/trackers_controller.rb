@@ -16,6 +16,7 @@ class TrackersController < ApplicationController
   end
 
   def show
+    @activity = Activity.find_by(id: @tracker.activity_id)
     if @tracker.feedback == nil
       @feedback = Feedback.new
     else

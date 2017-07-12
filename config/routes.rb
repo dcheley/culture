@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :rewards, only: [:new, :create, :index, :edit, :update, :destroy]
-  resources :activities, only: [:new, :create, :show, :index, :edit, :update, :destroy]
+  resources :activities
+  resources :trackers
   resources :feedbacks, only: [:destroy]
-  resources :activities do
+  resources :trackers do
     resources :feedbacks, only: [:create, :update]
   end
 end
