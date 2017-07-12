@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      current_user.update_attributes(new_hire_id: @user.id)
-      redirect_to trackers_url, notice: 'New hire registered, assign activities below'
+      current_user.update_attributes(new_hire_email: @user.email)
+      redirect_to trackers_url, notice: 'New hire registered, assign activities to them below'
     else
       render :home
     end

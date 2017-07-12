@@ -14,8 +14,8 @@
     <%= f.label :user_email, "Assign activity to New Hire", class:"field-label" %>
     <%= f.text_field :user_email, placeholder:"example@email.com", class:"field-input" %>
   </div> -->
-  <%= f.hidden_field :user_email, value: %>
-  
+  <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
+
   <div class="field">
     <%= f.label :contact, "Employee Contact", class:"field-label" %>
     <%= f.text_field :contact, placeholder:"example@email.com", class:"field-input" %>
