@@ -10,10 +10,10 @@
 
   <% end %>
 
-  <!-- <div class="field">
-    <%= f.label :user_email, "Assign activity to New Hire", class:"field-label" %>
-    <%= f.text_field :user_email, placeholder:"example@email.com", class:"field-input" %>
-  </div> -->
+  <div class="field">
+    <%= f.label :user_email, "Assign activity to #{current_user.new_hire_email}", class:"field-label" %>
+  </div>
+  
   <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
 
   <div class="field">
