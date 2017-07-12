@@ -3,11 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    if current_user.reward == nil
-      users_url
-    else
-      user_url(current_user)
-    end
+    home_url
   end
 
   protected
