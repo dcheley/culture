@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'users/home' => 'users#home', as: :home
+  post 'users/home' => 'users#create', as: :register_employee
 
   resources :users, only: [:index, :show]
   resources :rewards, only: [:new, :create, :index, :edit, :update, :destroy]

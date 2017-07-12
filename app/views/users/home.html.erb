@@ -1,8 +1,17 @@
 <!-- Admin User View -->
 <% if current_user.admin == 1 %>
   <div class="form-container">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+    <%= form_for(@user, url: :register_employee) do |f| %>
+      <% if @user.errors.any? %>
+        <h3 class="error-header"><%= pluralize(@user.errors.count, "error") %> occurred!</h3>
+
+        <ul class="error-list">
+          <% @user.errors.full_messages.each do |msg| %>
+            <li class="error-msg"><%= msg %></li>
+          <% end %>
+        </ul>
+
+      <% end %>
 
       <div class="field">
         <%= f.label :email %><br />
@@ -12,7 +21,7 @@
       <%= f.hidden_field :password, value: '123456' %>
       <%= f.hidden_field :password_confirmation, value: '123456' %>
 
-      <div class="actions">
+      <div class="actions" style="margin-top: 10px;">
         <%= f.submit "Register New Hire", class:"submit", id:"blue" %>
       </div><br />
     <% end %>
