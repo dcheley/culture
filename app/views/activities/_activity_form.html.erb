@@ -11,21 +11,7 @@
   <% end %>
 
   <%= f.hidden_field :status, value: nil %>
-
-  <!-- <div class="field">
-    <%= f.label :user_id, "Assign activity to New Hire", class:"field-label" %>
-    <%= f.text_field :user_id, placeholder:"example@email.com", class:"field-input" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :contact, "Employee Contact", class:"field-label" %>
-    <%= f.text_field :contact, placeholder:"example@email.com", class:"field-input" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :due_date, "Due Date", class:"field-label" %>
-    <%= f.datetime_select :due_date, class:"field-input" %>
-  </div> -->
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
   <!-- <div class="field">
     <%= f.label :prize, "Prize ($)", class:"field-label" %>
