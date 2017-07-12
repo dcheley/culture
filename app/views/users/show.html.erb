@@ -2,26 +2,14 @@
 
 <div class="half">
   <h5 class="home-header">Activities to be Completed</h5>
-  <% @trackers.where("status IS ? OR status != ?", nil, 1).each do |a| %>
-    <%= link_to "/activities/#{a.id}" do %>
-      <li class="activity-items">
-        <div class="circle" id="green">
-          <p class="circle-text"><%= a.name %></p>
-        </div>
-      </li>
-    <% end %>
+  <% @trackers.where("status IS ? OR status != ?", nil, 1).each do |c| %>
+    <%= render 'tracker-circles', a: a %>
   <% end %>
 </div>
 
 <div class="half">
   <h5 class="home-header">Activities Completed</h5>
   <% @trackers.where(status: 1).each do |c| %>
-    <%= link_to "/activities/#{c.id}" do %>
-      <li class="activity-items">
-        <div class="circle" id="blue">
-          <p class="circle-text"><%= c.name %></p>
-        </div>
-      </li>
-    <% end %>
+    <%= render 'tracker-circles', a: a %>
   <% end %>
 </div>
