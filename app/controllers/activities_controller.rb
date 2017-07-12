@@ -16,11 +16,6 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    if @activity.feedback == nil
-      @feedback = Feedback.new
-    else
-      @feedback = @activity.feedback
-    end
   end
 
   def index
@@ -33,12 +28,6 @@ class ActivitiesController < ApplicationController
   def update
     if @activity.update_attributes(activity_params) && current_user.admin == 1
       redirect_to '/activities', notice: "#{@activity.name} successfully updated"
-    elsif @activity.update_attributes(activity_params) && @activity.status == 1
-      current_user.reward.update_attributes(award: current_user.reward.award + @activity.prize)
-      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} completed! You've been awarded #{@activity.prize}"
-    elsif @activity.update_attributes(activity_params) && @activity.status != 1
-      current_user.reward.update_attributes(award: current_user.reward.award - @activity.prize)
-      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} marked incomplete"
     else
       render :edit
     end

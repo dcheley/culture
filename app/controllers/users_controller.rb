@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reward = @user.reward
-    @activities = @user.activities
+    @trackers = @user.trackers
   end
 
   private
