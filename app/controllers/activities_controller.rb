@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_activity, only: [:show, :edit, :update, :destroy]
+  before_action :load_activity, only: [:edit, :update, :destroy]
 
   def new
     @activity = Activity.new
@@ -13,9 +13,6 @@ class ActivitiesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def index
