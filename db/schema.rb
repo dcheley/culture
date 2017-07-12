@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712154849) do
+ActiveRecord::Schema.define(version: 20170712175315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20170712154849) do
     t.string "name"
     t.decimal "award", precision: 6, scale: 2
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trackers", force: :cascade do |t|
+    t.integer "activity_id"
+    t.string "user_email"
+    t.string "contact"
+    t.integer "status"
+    t.integer "feedback_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
