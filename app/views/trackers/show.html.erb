@@ -1,13 +1,4 @@
-<h3 class="home-header"><%= @activity.name %></h3>
-
-<p class="home-text" id="paragraph"><b>Due:</b> <%= @tracker.due_date.strftime('%A, %B %d @ %H:%M') %></p>
-<p class="home-text" id="paragraph"><%= @activity.description %></p>
-
-<p class="home-text"><b>Question 1:</b> <%= @activity.task_one %></p>
-<p class="home-text"><b>Question 2:</b> <%= @activity.task_two %></p>
-<p class="home-text"><b>Question 3:</b> <%= @activity.task_three %></p>
-<p class="home-text"><b>Question 4:</b> <%= @activity.task_four %></p>
-<p class="home-text"><b>Question 5:</b> <%= @activity.task_five %></p>
+<%= render 'activity-details' %>
 
 <h3 class="home-header">Answer below:</h3>
 

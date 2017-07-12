@@ -1,6 +1,7 @@
 class TrackersController < ApplicationController
   before_action :authenticate_user!
   before_action :load_tracker, only: [:show, :edit, :update, :destroy]
+  before_action :load_tracked_activity, only: [:show, :edit, :update]
 
   def new
     @tracker = Tracker.new
@@ -9,14 +10,13 @@ class TrackersController < ApplicationController
   def create
     @tracker = Tracker.new(tracker_params)
     if @tracker.save
-      redirect_to '/activities', notice: "Activity successfully assigned to #{@tracker.user_email}"
+      redirect_to '/trackers', notice: "Activity successfully assigned to #{@tracker.user_email}"
     else
       render :new
     end
   end
 
   def show
-    @activity = Activity.find_by(id: @tracker.activity_id)
     if @tracker.feedback == nil
       @feedback = Feedback.new
     else
@@ -32,7 +32,6 @@ class TrackersController < ApplicationController
   end
 
   def update
-    @activity = Activity.find_by(id: @tracker.activity_id)
     if @tracker.update_attributes(tracker_params) && @tracker.status == 1
       current_user.reward.update_attributes(award: current_user.reward.award + 1)
       redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} completed!"
@@ -45,13 +44,18 @@ class TrackersController < ApplicationController
   end
 
   def destroy
-    # ???
+    @tracker.destroy
+    redirect_to trackers_url, notice: "#{@tracker.user_email}'s activity successfully deleted"
   end
 
   private
 
   def load_tracker
     @tracker = Tracker.find(params[:id])
+  end
+
+  def load_tracked_activity
+    @activity = Activity.find_by(id: @tracker.activity_id)
   end
 
   def activity_params

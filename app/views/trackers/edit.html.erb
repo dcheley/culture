@@ -1,0 +1,7 @@
+<h3 class="home-header">Reassign Activity</h3>
+
+<%= render 'tracker_form' %><br />
+
+<%= render 'activity-details' %><br />
+
+<%= button_to 'DELETE', @tracker, method: :delete, data: {confirm: "Are you sure?"}, class:"delete", id:"red" %>
