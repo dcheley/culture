@@ -1,0 +1,5 @@
+<% if a.due_date != nil %>
+  <p class="progress-date">
+    (<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%M') %>)
+  </p>
+<% end %>

@@ -10,11 +10,7 @@
         <div class="dropdown">
           <%= render 'feedback-dropdown', a: a %>
           <p class="status">COMPLETE</p>
-          <% if a.due_date != nil %>
-            <p class="progress-date">
-              (<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%M') %>)
-            </p>
-          <% end %>
+          <%= render 'progress-due-date', a: a %>
         </div>
       <% end %>
       <!-- Display all of User's incomplete Activities with Feedback as Dropdown (if they exist) -->
@@ -22,11 +18,7 @@
         <div class="dropdown">
           <%= render 'feedback-dropdown', a: a %>
           <p class="status">INCOMPLETE</p>
-          <% if a.due_date != nil %>
-            <p class="progress-date">
-              (<b>Due:</b> <%= a.due_date.strftime('%A, %B %d @ %H:%M') %>)
-            </p>
-          <% end %>
+            <%= render 'progress-due-date', a: a %>
         </div>
       <% end %>
     </div>
@@ -49,13 +41,6 @@
   </p>
 
   <div class="link-wrap">
-    <!-- Using create button because of potential Gift Card feature -->
-    <% if current_user.reward == nil %>
-      <%= button_to "Get Started", {controller: :rewards, action: :create,
-          reward: { name: "Progress", user_id: current_user.id, award: 0 }},
-          class:"submit", id:"blue" %><br />
-    <% else %>
-      <%= link_to "Get Started", user_url(current_user), class:"submit", id:"blue" %>
-    <% end %>
+    <%= link_to "Get Started", user_url(current_user), class:"submit", id:"blue" %>
   </div>
 <% end %>
