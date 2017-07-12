@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_scope :user do
-    root to: 'users#index'
+    root to: 'users#home'
   end
 
   devise_for :users
+
+  get 'users/home' => 'users#home'
 
   resources :users, only: [:index, :show]
   resources :rewards, only: [:new, :create, :index, :edit, :update, :destroy]

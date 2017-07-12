@@ -1,46 +1,23 @@
-<!-- Admin User View -->
-<% if current_user.admin == 1 %>
-  <h3 class="progress-title">Current Progress</h3>
+<h3 class="progress-title">Current Progress</h3>
 
-  <% @users.where(admin: nil).each do |u| %>
-    <div class="progress-wrap">
-      <p class=""><b><%= u.email %>'s</b> progress:</p>
-      <!-- Display all of User's completed Activities with Feedback as Dropdown (if they exist) -->
-      <% u.activities.where(status: 1).each do |a| %>
-        <div class="dropdown">
-          <%= render 'feedback-dropdown', a: a %>
-          <p class="status">COMPLETE</p>
+<% @users.where(admin: nil).each do |u| %>
+  <div class="progress-wrap">
+    <p class=""><b><%= u.email %>'s</b> progress:</p>
+    <!-- Display all of User's completed Activities with Feedback as Dropdown (if they exist) -->
+    <% u.activities.where(status: 1).each do |a| %>
+      <div class="dropdown">
+        <%= render 'feedback-dropdown', a: a %>
+        <p class="status">COMPLETE</p>
+        <%= render 'progress-due-date', a: a %>
+      </div>
+    <% end %>
+    <!-- Display all of User's incomplete Activities with Feedback as Dropdown (if they exist) -->
+    <% u.activities.where(status: nil).each do |a| %>
+      <div class="dropdown">
+        <%= render 'feedback-dropdown', a: a %>
+        <p class="status">INCOMPLETE</p>
           <%= render 'progress-due-date', a: a %>
-        </div>
-      <% end %>
-      <!-- Display all of User's incomplete Activities with Feedback as Dropdown (if they exist) -->
-      <% u.activities.where(status: nil).each do |a| %>
-        <div class="dropdown">
-          <%= render 'feedback-dropdown', a: a %>
-          <p class="status">INCOMPLETE</p>
-            <%= render 'progress-due-date', a: a %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
-<!-- Normal User View -->
-<% else %>
-  <h1 class="home-title">Welcome to the Organization</h1>
-
-  <p class="welcome-text">This is Shape, your employee integration application!</p>
-
-  <p class="welcome-text">
-    The app will provide you with integration activities so that  gain a deeper
-    understanding of your workplace's culture and its employees.
-  </p>
-
-  <p class="welcome-text">
-    In order to being learning about the common set of values, norms and behaviours
-    of your workplace, click the "Get Started" button below.
-  </p>
-
-  <div class="link-wrap">
-    <%= link_to "Get Started", user_url(current_user), class:"submit", id:"blue" %>
+      </div>
+    <% end %>
   </div>
 <% end %>
