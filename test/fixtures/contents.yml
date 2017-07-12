@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  task_one: MyString
+  task_two: MyString
+  task_three: MyString
+  task_four: MyString
+  task_five: MyString
+  prize: 
+  precision: MyString
+  6,: MyString
+  scale: MyString
+  2,: MyString
+  description: MyText
+
+two:
+  name: MyString
+  task_one: MyString
+  task_two: MyString
+  task_three: MyString
+  task_four: MyString
+  task_five: MyString
+  prize: 
+  precision: MyString
+  6,: MyString
+  scale: MyString
+  2,: MyString
+  description: MyText
