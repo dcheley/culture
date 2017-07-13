@@ -34,12 +34,10 @@
   <h3 class="home-header">Assign activities to an existing employee</h3>
 
   <% @users.each do |u| %>
-    <!-- <%= link_to "/trackers", class:"link" do %> -->
-      <%= form_for(current_user, url: :select_employee) do |f| %>
-        <%= f.hidden_field :new_hire_email, value: u.email %>
-        <%= f.submit "#{u.email}", class:"link", id:"submit-link" %>
-      <% end %>
-    <!-- <% end %> -->
+    <%= form_for(current_user, url: :select_employee) do |f| %>
+      <%= f.hidden_field :new_hire_email, value: u.email %>
+      <%= f.submit "#{u.email}", class:"link", id:"submit-link" %>
+    <% end %>
   <% end %>
 
 <!-- Normal User View -->
