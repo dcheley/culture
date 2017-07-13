@@ -70,13 +70,15 @@
   background-color: red;
 }
 
-.link {
-  color: #00796b;
+.link,
+#link {
+  color: #00796b !important;
   text-decoration: none;
  }
 
-.link:hover {
-  color: #004d40;
+.link:hover,
+#link:hover {
+  color: #004d40 !important;
  }
 
 .nav-link,
@@ -85,6 +87,13 @@
   display: inline;
   margin: 30px;
   line-height: 50px;
+ }
+
+ #submit-nav-link {
+   border: none;
+   background-color: white;
+   padding: 5px;
+   margin-left: 10px;
  }
 
 .active a {
