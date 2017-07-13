@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_activity, only: [:edit, :update, :destroy]
+  before_action :load_activity, only: [:show, :edit, :update, :destroy]
 
   def new
     @activity = Activity.new
@@ -17,6 +17,10 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all.order("name DESC")
+  end
+
+  def show
+    @tracker = Tracker.new
   end
 
   def edit

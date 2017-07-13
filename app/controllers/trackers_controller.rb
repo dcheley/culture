@@ -26,21 +26,23 @@ class TrackersController < ApplicationController
 
   def index
     if Tracker.find_by(user_email: current_user.new_hire_email) != nil
-      @trackers = Tracker.find_by(user_email: current_user.new_hire_email).all.order("updated_at DESC")
+      @trackers = Tracker.where(user_email: current_user.new_hire_email).order("updated_at DESC")
     end
-    @activities = Activity.find_by(user_id: current_user.id).all.order("name DESC")
+    @activities = Activity.where(user_id: current_user.id).order("name DESC")
   end
 
   def edit
   end
 
   def update
-    if @tracker.update_attributes(tracker_params) && @tracker.status == 1
+    if current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status == 1
       current_user.reward.update_attributes(award: current_user.reward.award + 1)
       redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} completed!"
-    elsif @tracker.update_attributes(tracker_params) && @tracker.status != 1
+    elsif current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status != 1
       current_user.reward.update_attributes(award: current_user.reward.award - 1)
       redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} marked incomplete"
+    elsif current_user.admin == 1 && @tracker.update_attributes(tracker_params)
+      redirect_to "/trackers", notice: "#{@activity.name} successfully updated"
     else
       render :edit
     end
@@ -61,7 +63,7 @@ class TrackersController < ApplicationController
     @activity = Activity.find_by(id: @tracker.activity_id)
   end
 
-  def activity_params
+  def tracker_params
     params.require(:tracker).permit(:status, :user_id, :activity_id,
     :user_email, :feedback_id, :contact, :due_date)
   end
