@@ -25,7 +25,9 @@ class TrackersController < ApplicationController
   end
 
   def index
-    @trackers = Tracker.find_by(user_email: current_user.new_hire_email).all.order("updated_at DESC")
+    if Tracker.find_by(user_email: current_user.new_hire_email) != nil
+      @trackers = Tracker.find_by(user_email: current_user.new_hire_email).all.order("updated_at DESC")
+    end
     @activities = Activity.find_by(user_id: current_user.id).all.order("name DESC")
   end
 
