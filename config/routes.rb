@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'users/home' => 'users#home', as: :home
   post 'users/home' => 'users#create', as: :register_employee
+  patch 'users/home' => 'users#update', as: :select_employee
 
   resources :users, only: [:index, :show]
   resources :rewards, only: [:new, :create, :index, :edit, :update, :destroy]

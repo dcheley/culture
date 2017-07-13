@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 
   def home
     @user = User.new
-    @users = User.all
+    if current_user.employees != nil
+      @users = current_user.employees
+    end
     if current_user.admin == 1 && current_user.activities.empty?
       seed_admin(current_user)
     end
@@ -13,9 +15,17 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       current_user.update_attributes(new_hire_email: @user.email)
+      @user.update_attributes(admin_id: current_user.id)
       redirect_to trackers_url, notice: 'New hire registered, assign activities to them below'
     else
       render :select_new_hire
+    end
+  end
+
+  def update
+    @user = User.find_by(id: current_user.id)
+    if @user.update_attributes(user_params) && @user.admin == 1
+      redirect_to trackers_url
     end
   end
 
@@ -31,7 +41,8 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation,
+    :new_hire_email)
   end
 
   def seed_admin(user)

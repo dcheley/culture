@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :administrator, class_name: "User", foreign_key: :admin_id, optional: true
+  has_many :employees, class_name: "User", foreign_key: :admin_id
+
+
   has_one :reward
   has_many :activities
   has_many :contents, through: :activities

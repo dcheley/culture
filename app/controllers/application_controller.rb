@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:signup, keys: [:admin, :new_hire_email])
+    devise_parameter_sanitizer.permit(:signup, keys: [:admin, :new_hire_email,
+      :admin_id])
   end
 end

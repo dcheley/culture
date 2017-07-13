@@ -1,5 +1,7 @@
 <!-- Admin User View -->
 <% if current_user.admin == 1 %>
+<h3 class="home-header">Register a New Hire</h3>
+
   <div class="form-container">
     <%= form_for(@user, url: :register_employee) do |f| %>
       <% if @user.errors.any? %>
@@ -27,7 +29,18 @@
     <% end %>
   </div>
 
-  <!-- FOR EACH EXISTING USER, DISPLAY BUTTON THAT UPDATES NEW_HIRE_EMAIL WITH LINK TEXT (user.email) -->
+  <p class="home-header">OR</p>
+
+  <h3 class="home-header">Assign activities to an existing employee</h3>
+
+  <% @users.each do |u| %>
+    <!-- <%= link_to "/trackers", class:"link" do %> -->
+      <%= form_for(current_user, url: :select_employee) do |f| %>
+        <%= f.hidden_field :new_hire_email, value: u.email %>
+        <%= f.submit "#{u.email}", class:"link", id:"submit-link" %>
+      <% end %>
+    <!-- <% end %> -->
+  <% end %>
 
 <!-- Normal User View -->
 <% else %>

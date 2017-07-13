@@ -1,6 +1,8 @@
 <h3 class="home-header">Assign Activities to <%= current_user.new_hire_email %></h3>
-<!-- OR SELECT ANOTHER USER TO ASSIGN -->
-<h3 class="home-header"> </h3>
+
+<p class="home-header">OR</p>
+
+<h3 class="home-header"><%= link_to "Select another employee", home_url, class:"link" %></h3>
 
 <%= link_to "Add New Activity for #{current_user.new_hire_email}", '/trackers/new', class:"submit", id:"blue" %>
 
@@ -14,7 +16,7 @@
   <% end %>
 <% end  %>
 
-<h3 class="home-header">Your Un-assigned Activities</h3>
+<h3 class="home-header">Your Unassigned Activities</h3>
 
 <% @activities.each do |a| %>
   <ul class="list">

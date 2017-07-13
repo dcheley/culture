@@ -14,8 +14,8 @@
       <nav class="navbar navbar-default">
         <li class="nav-link"><%= link_to 'LOGOUT', destroy_user_session_url, method: :delete, class:"link" %></li>
         <!-- <li class="<%= current_page?('/rewards') ? 'active' : 'nav-link' %>"><%= link_to 'Rewards', rewards_url, class:"link" %></li> -->
+        <li class="<%= current_page?('/trackers') ? 'active' : 'nav-link' %>"><%= link_to 'HOME', home_url, class:"link" %></li>
         <li class="<%= current_page?('/activities') ? 'active' : 'nav-link' %>"><%= link_to 'MANAGE ACTIVITIES', activities_url, class:"link" %></li>
-        <li class="<%= current_page?('/trackers') ? 'active' : 'nav-link' %>"><%= link_to 'ASSIGN ACTIVITIES', home_url, class:"link" %></li>
         <li class="<%= current_page?('/users') ? 'active' : 'nav-link' %>"><%= link_to 'CURRENT PROGRESS', users_url, class:"link" %></li>
       </nav>
     <% end %>
