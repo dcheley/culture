@@ -25,7 +25,8 @@ class TrackersController < ApplicationController
   end
 
   def index
-    @trackers = Tracker.all.order("name DESC")
+    @trackers = Tracker.find_by(user_email: current_user.new_hire_email).all.order("updated_at DESC")
+    @activities = Activity.find_by(user_id: current_user.id).all.order("name DESC")
   end
 
   def edit

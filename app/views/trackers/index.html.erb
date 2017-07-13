@@ -1,7 +1,18 @@
+<h3 class="home-header">Assign Activities to <%= current_user.new_hire_email %></h3>
+<!-- OR SELECT ANOTHER USER TO ASSIGN -->
+
 <%= link_to "Add New Activity for #{current_user.new_hire_email}", '/trackers/new', class:"submit", id:"blue" %>
 
-<% @trackers.each do |a| %>
+<% @trackers.each do |t| %>
   <ul class="list">
-    <br /><li><%= link_to a.name, "/trackers/#{a.id}/edit", class:"link" %></li>
+    <br /><li><%= link_to t.name, "/trackers/#{t.id}/edit", class:"link" %></li>
+  </ul>
+<% end %>
+
+<h3 class="home-header">Your Un-assigned Activities</h3>
+
+<% @activities.each do |a| %>
+  <ul class="list">
+    <br /><li><%= link_to a.name, "/activities/#{a.id}", class:"link" %></li>
   </ul>
 <% end %>

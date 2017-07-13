@@ -1,3 +1,16 @@
+<h3 class="home-header">Un-assigned Activity Details</h3>
+
+<h3 class="home-header"><%= @activity.name %> Details</h3>
+
+<p class="home-text" id="paragraph"><b>Due:</b> <%= @tracker.due_date.strftime('%A, %B %d @ %H:%M') %></p>
+<p class="home-text" id="paragraph"><%= @activity.description %></p>
+
+<p class="home-text"><b>Question 1:</b> <%= @activity.task_one %></p>
+<p class="home-text"><b>Question 2:</b> <%= @activity.task_two %></p>
+<p class="home-text"><b>Question 3:</b> <%= @activity.task_three %></p>
+<p class="home-text"><b>Question 4:</b> <%= @activity.task_four %></p>
+<p class="home-text"><b>Question 5:</b> <%= @activity.task_five %></p>
+
 <%= form_for(@tracker) do |f| %>
   <% if @tracker.errors.any? %>
     <h3 class="error-header"><%= pluralize(@tracker.errors.count, "error") %> occurred!</h3>
