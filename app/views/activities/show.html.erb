@@ -23,7 +23,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_email, "Assign this activity to #{current_user.new_hire_email}?", class:"field-label" %>
+    <%= f.label :user_email, "Assign this activity to", class:"field-label" %>
+    <label class="green-text"><%= current_user.new_hire_email + "?" %></label>
   </div>
 
   <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
