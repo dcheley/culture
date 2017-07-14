@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'users/home' => 'users#home', as: :home
   post 'users/home' => 'users#create', as: :register_employee
   patch 'users/home' => 'users#update', as: :select_employee
+  get 'activities/new_assignment' => 'activities#new_assignment', as: :assign_new_activity
 
   resources :users, only: [:index, :show]
   resources :rewards, only: [:new, :create, :index, :edit, :update, :destroy]

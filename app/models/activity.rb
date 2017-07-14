@@ -7,4 +7,6 @@ class Activity < ApplicationRecord
 
   validates :name, presence: true
   # validates :prize, numericality: { greater_than_or_equal_to: 0 }
+
+  accepts_nested_attributes_for :trackers
 end

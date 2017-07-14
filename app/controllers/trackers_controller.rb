@@ -5,10 +5,12 @@ class TrackersController < ApplicationController
 
   def new
     @tracker = Tracker.new
+    @activity = Activity.new
   end
 
   def create
     @tracker = Tracker.new(tracker_params)
+    @activity = Activity.new
     if @tracker.save
       redirect_to '/trackers', notice: "Activity successfully assigned to #{@tracker.user_email}"
     else

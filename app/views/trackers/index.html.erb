@@ -4,7 +4,7 @@
 
 <h3 class="home-header"><%= link_to "Select another employee", home_url, class:"link" %></h3>
 
-<%= link_to "Add New Activity for #{current_user.new_hire_email}", '/trackers/new', class:"submit", id:"blue" %>
+<%= link_to "Add New Activity for #{current_user.new_hire_email}", '/activities/new_assignment', class:"submit", id:"blue" %>
 
 <% if @trackers != nil %>
   <% @trackers.each do |t| %>
