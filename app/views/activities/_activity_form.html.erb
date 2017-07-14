@@ -52,19 +52,6 @@
     <%= f.text_field :task_five, class:"field-input" %>
   </div><br />
 
-  <% if current_page?(action: "new_assignment") %>
-    <%= f.fields_for :trackers_attributes do |a| %>
-      <%= a.hidden_field :user_email, value: current_user.new_hire_email %>
-      <%= a.hidden_field :status, value: nil %>
-
-      <%= a.label :contact, class:"field-input" %>
-      <%= a.text_field :contact, placeholder:"example@email.com", class:"field-input" %>
-
-      <%= a.label :due_date, "Due Date", class:"field-label" %>
-      <%= a.datetime_select :due_date, class:"field-input" %>
-    <% end %>
-  <% end %><br />
-
   <%= f.submit "SUBMIT", class:"submit", id:"green" %>
 
   <%= link_to "BACK", "/activities", class:"submit", id:"green" %>

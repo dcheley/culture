@@ -11,7 +11,8 @@ class User < ApplicationRecord
   has_one :reward
   has_many :activities
   has_many :contents, through: :activities
-  has_many :tracked_activities, class_name: :Activity, foreign_key: :user_email, primary_key: :email, through: :trackers
+  has_many :trackers, foreign_key: :user_email, primary_key: :email
+  has_many :tracked_activities, through: :trackers
   has_many :feedbacks, through: :trackers
 
   validates :new_hire_email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => [:create, :update] }, allow_blank: true

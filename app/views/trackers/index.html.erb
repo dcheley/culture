@@ -1,11 +1,9 @@
-<h3 class="home-header">Assign Activities to <%= current_user.new_hire_email %></h3>
+<h3 class="home-header">
+  Start integrating by picking activities for
+  <div class="green-text" style="display: inline;"><%= current_user.new_hire_email %></div>
+</h3>
 
-<p class="home-header">OR</p>
-
-<h3 class="home-header"><%= link_to "Select another employee", home_url, class:"link" %></h3>
-
-<%= link_to "Add New Activity for #{current_user.new_hire_email}", '/activities/new_assignment', class:"submit", id:"blue" %>
-
+<h3 class="home-header">Assigned Activities</h3>
 <% if @trackers != nil %>
   <% @trackers.each do |t| %>
     <% Activity.where(id: t.activity_id).each do |tracked_activity| %>
@@ -16,7 +14,7 @@
   <% end %>
 <% end  %>
 
-<h3 class="home-header">Your Activities</h3>
+<h3 class="home-header">Choose Options</h3>
 
 <% @activities.each do |a| %>
   <ul class="list">

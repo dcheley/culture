@@ -1,7 +1,0 @@
-<%= link_to 'Add Activity', '/activities/new', class:"submit", id:"blue" %>
-
-<% @activities.each do |a| %>
-  <ul class="list">
-    <br /><li><%= link_to a.name, "/activities/#{a.id}/edit", class:"link" %></li>
-  </ul>
-<% end %>

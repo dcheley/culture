@@ -6,10 +6,6 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new
   end
 
-  def new_assignment
-    @activity = Activity.new
-  end
-
   def create
     @activity = Activity.new(activity_params)
     if @activity.save
@@ -17,10 +13,6 @@ class ActivitiesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def index
-    @activities = Activity.all.order("name DESC")
   end
 
   def show
@@ -51,8 +43,6 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:name, :description, :task_one, :task_two,
-    :task_three, :task_four, :task_five, :user_id, :content_id, :prize,
-    trackers_attributes: [:id, :status, :user_id, :activity_id, :user_email,
-      :feedback_id, :contact, :due_date])
+    :task_three, :task_four, :task_five, :user_id, :content_id, :prize)
   end
 end

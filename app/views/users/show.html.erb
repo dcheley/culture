@@ -1,15 +1,15 @@
-<h1 class="home-header"><b><%= "#{@reward.award.to_int}/#{@user.tracked_activities.count}" %></b></h1>
+<h1 class="home-header"><b><%= "#{@reward.award.to_int}/#{@user.trackers.count}" %></b></h1>
 
 <div class="half">
   <h5 class="home-header">Activities to be Completed</h5>
   <% @trackers.where("status IS ? OR status != ?", nil, 1).each do |c| %>
-    <%= render 'tracker-circles', a: a %>
+    <%= render 'tracker_circles', c: c %>
   <% end %>
 </div>
 
 <div class="half">
   <h5 class="home-header">Activities Completed</h5>
   <% @trackers.where(status: 1).each do |c| %>
-    <%= render 'tracker-circles', a: a %>
+    <%= render 'tracker_circles', c: c %>
   <% end %>
 </div>

@@ -15,7 +15,7 @@
         <li class="nav-link"><%= link_to 'LOGOUT', destroy_user_session_url, method: :delete, class:"link" %></li>
         <!-- <li class="<%= current_page?('/rewards') ? 'active' : 'nav-link' %>"><%= link_to 'Rewards', rewards_url, class:"link" %></li> -->
         <li class="<%= current_page?('/users/home') ? 'active' : 'nav-link' %>"><%= link_to 'HOME', home_url, class:"link" %></li>
-        <li class="<%= current_page?('/activities') ? 'active' : 'nav-link' %>"><%= link_to 'MANAGE ACTIVITIES', activities_url, class:"link" %></li>
+        <li class="<%= current_page?('/activities/new') ? 'active' : 'nav-link' %>"><%= link_to 'ADD ACTIVITIES', new_activity_url, class:"link" %></li>
         <li role="presentation" class="dropdown" style="display: inline;">
           <a class="dropdown-toggle" id="link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             CURRENT PROGRESS

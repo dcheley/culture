@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def home
     @user = User.new
+    if current_user.reward == nil
+      Reward.create(name: "Progress", user_id: current_user.id, award: 0)
+    end
     if current_user.employees != nil
       @users = current_user.employees
     end
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
       @user.update_attributes(admin_id: current_user.id)
       redirect_to trackers_url, notice: 'New hire registered, assign activities to them below'
     else
-      render :select_new_hire
+      render :home
     end
   end
 
@@ -36,7 +39,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reward = @user.reward
-    @trackers = @user.tracked_activities
+    @trackers = @user.trackers
   end
 
   private

@@ -31,6 +31,8 @@ class TrackersController < ApplicationController
       @trackers = Tracker.where(user_email: current_user.new_hire_email).order("updated_at DESC")
     end
     @activities = Activity.where(user_id: current_user.id).order("name DESC")
+    @activity = Activity.new
+    @activity.trackers.build
   end
 
   def edit
