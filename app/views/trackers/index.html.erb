@@ -3,21 +3,28 @@
   <div class="green-text" style="display: inline;"><%= current_user.new_hire_email %></div>
 </h3>
 
-<h3 class="home-header">Assigned Activities</h3>
-<% if @trackers != nil %>
-  <% @trackers.each do |t| %>
-    <% Activity.where(id: t.activity_id).each do |tracked_activity| %>
+<div class="half-screen">
+  <div class="wrap">
+    <h3 class="home-header">Assigned Activities</h3>
+    <% if @trackers != nil %>
+      <% @trackers.each do |t| %>
+        <% Activity.where(id: t.activity_id).each do |tracked_activity| %>
+          <ul class="list">
+            <br /><li><%= link_to tracked_activity.name, "/trackers/#{tracked_activity.id}/edit", class:"link" %></li>
+          </ul>
+        <% end %>
+      <% end %>
+    <% end  %>
+  </div>
+</div>
+
+<div class="half-screen">
+  <div class="wrap">
+    <h3 class="home-header">Choose Options</h3>
+    <% @activities.each do |a| %>
       <ul class="list">
-        <br /><li><%= link_to tracked_activity.name, "/trackers/#{tracked_activity.id}/edit", class:"link" %></li>
+        <br /><li><%= link_to a.name, "/users/#{current_user.id}/activities/#{a.id}", class:"link" %></li>
       </ul>
     <% end %>
-  <% end %>
-<% end  %>
-
-<h3 class="home-header">Choose Options</h3>
-
-<% @activities.each do |a| %>
-  <ul class="list">
-    <br /><li><%= link_to a.name, "/users/#{current_user.id}/activities/#{a.id}", class:"link" %></li>
-  </ul>
-<% end %>
+  </div>
+</div>
