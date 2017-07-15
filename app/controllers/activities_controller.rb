@@ -8,6 +8,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
+    @activity.id = Activity.last.id + 1
     if @activity.save
       redirect_to '/trackers', notice: "#{@activity.name} successfully created"
     else
