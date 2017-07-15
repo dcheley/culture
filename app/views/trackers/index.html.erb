@@ -1,6 +1,25 @@
 <h3 class="home-header">
   Start integrating by picking activities for
-  <div class="green-text" style="display: inline;"><%= current_user.new_hire_email %></div>
+  <div class="dropdown" style="display: inline">
+    <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdown3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div id="link">
+        <%= current_user.new_hire_email %>
+        <span class="caret"></span>
+      </div>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdown3">
+      <p class="progress-text" style="margin-top: 0;">Registered Employees:</p>
+      <!-- Display links to user profiles of Admin's Employees -->
+      <% if current_user.employees != nil %>
+        <% current_user.employees.each do |e| %>
+          <%= form_for(current_user, url: :select_employee) do |f| %>
+            <%= f.hidden_field :new_hire_email, value: e.email %>
+            <%= f.submit "#{e.email}", class:"link", id:"submit-nav-link" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </h3>
 
 <div class="half-screen">
