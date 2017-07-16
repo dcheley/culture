@@ -12,7 +12,7 @@ class TrackersController < ApplicationController
     @tracker = Tracker.new(tracker_params)
     @activity = Activity.new
     if @tracker.save
-      redirect_to home_urls, notice: "Activity successfully assigned to #{@tracker.user_email}"
+      redirect_to home_url, notice: "Activity successfully assigned to #{@tracker.user_email}"
     else
       render :new
     end
