@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: current_user.id)
     if @user.update_attributes(user_params) && @user.admin == 1
-      redirect_to trackers_url
+      redirect_to home_url
     end
   end
 

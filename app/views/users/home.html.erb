@@ -36,18 +36,18 @@
       Start integrating by picking activities for
       <div class="dropdown" style="display: inline">
         <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdown3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div id="link">
+          <div id="dropdown-link">
             <%= current_user.new_hire_email %>
             <span class="caret"></span>
           </div>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdown3">
-          <p class="progress-text" style="margin-top: 0;">Registered Employees:</p>
+          <p class="home-dropdown-header">Registered Employees:</p>
           <!-- Display links to user profiles of Admin's Employees -->
           <% @users.each do |e| %>
             <%= form_for(current_user, url: :select_employee) do |f| %>
               <%= f.hidden_field :new_hire_email, value: e.email %>
-              <%= f.submit "#{e.email}", class:"link", id:"submit-nav-link" %>
+              <%= f.submit "#{e.email}", id:"list-link" %>
             <% end %>
           <% end %>
         </div>
