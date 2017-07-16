@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if current_user.reward == nil
       Reward.create(name: "Progress", user_id: current_user.id, award: 0)
     end
-    if current_user.employees.empty?
+    if current_user.employees.empty? != true
       @users = current_user.employees
     end
     if current_user.admin == 1 && current_user.activities.empty?
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       current_user.update_attributes(new_hire_email: @user.email)
       @user.update_attributes(admin_id: current_user.id)
-      redirect_to trackers_url, notice: 'New hire registered, assign activities to them below'
+      redirect_to home_url, notice: 'New hire registered, assign activities to them below'
     else
       render :home
     end

@@ -29,7 +29,7 @@
     <% end %>
   </div>
 
-  <% if current_user.employees.empty? %>
+  <% if @users != nil %>
     <p class="home-header">OR</p>
 
     <h3 class="home-header">
@@ -44,7 +44,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown3">
           <p class="progress-text" style="margin-top: 0;">Registered Employees:</p>
           <!-- Display links to user profiles of Admin's Employees -->
-          <% current_user.employees.each do |e| %>
+          <% @users.each do |e| %>
             <%= form_for(current_user, url: :select_employee) do |f| %>
               <%= f.hidden_field :new_hire_email, value: e.email %>
               <%= f.submit "#{e.email}", class:"link", id:"submit-nav-link" %>
