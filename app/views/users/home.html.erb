@@ -61,13 +61,11 @@
       <h3 class="home-header"><%= current_user.new_hire_email %>'s Activities</h3>
       <% if @trackers != nil %>
         <% @trackers.each do |t| %>
-          <% Activity.where(id: t.activity_id).each do |tracked_activity| %>
-            <ul class="list">
-              <br /><li><%= link_to tracked_activity.name, "/trackers/#{tracked_activity.id}/edit", class:"link" %></li>
-            </ul>
-          <% end %>
+          <ul class="list">
+            <br /><li><%= link_to t.activity.name, "/trackers/#{t.id}/edit", class:"link" %></li>
+          </ul>
         <% end %>
-      <% end  %>
+      <% end %>
     </div>
   </div>
 
