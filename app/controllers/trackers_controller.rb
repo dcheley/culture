@@ -12,7 +12,7 @@ class TrackersController < ApplicationController
     @tracker = Tracker.new(tracker_params)
     @activity = Activity.new
     if @tracker.save
-      redirect_to '/trackers', notice: "Activity successfully assigned to #{@tracker.user_email}"
+      redirect_to home_urls, notice: "Activity successfully assigned to #{@tracker.user_email}"
     else
       render :new
     end
@@ -26,15 +26,6 @@ class TrackersController < ApplicationController
     end
   end
 
-  def index
-    if Tracker.find_by(user_email: current_user.new_hire_email) != nil
-      @trackers = Tracker.where(user_email: current_user.new_hire_email).order("updated_at DESC")
-    end
-    @activities = Activity.where(user_id: current_user.id).order("name DESC")
-    @activity = Activity.new
-    @activity.trackers.build
-  end
-
   def edit
   end
 
@@ -46,7 +37,7 @@ class TrackersController < ApplicationController
       current_user.reward.update_attributes(award: current_user.reward.award - 1)
       redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} marked incomplete"
     elsif current_user.admin == 1 && @tracker.update_attributes(tracker_params)
-      redirect_to "/trackers", notice: "#{@activity.name} successfully updated"
+      redirect_to home_url, notice: "#{@activity.name} successfully updated"
     else
       render :edit
     end
@@ -54,7 +45,7 @@ class TrackersController < ApplicationController
 
   def destroy
     @tracker.destroy
-    redirect_to trackers_url, notice: "#{@tracker.user_email}'s activity successfully deleted"
+    redirect_to home_url, notice: "#{@tracker.user_email}'s activity successfully deleted"
   end
 
   private

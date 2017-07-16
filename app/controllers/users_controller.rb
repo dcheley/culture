@@ -6,12 +6,18 @@ class UsersController < ApplicationController
     if current_user.reward == nil
       Reward.create(name: "Progress", user_id: current_user.id, award: 0)
     end
-    if current_user.employees != nil
+    if current_user.employees.empty?
       @users = current_user.employees
     end
     if current_user.admin == 1 && current_user.activities.empty?
       seed_admin(current_user)
     end
+    if Tracker.find_by(user_email: current_user.new_hire_email) != nil
+      @trackers = Tracker.where(user_email: current_user.new_hire_email).order("updated_at DESC")
+    end
+    @activities = Activity.where(user_id: current_user.id).order("name DESC")
+    @activity = Activity.new
+    @activity.trackers.build
   end
 
   def create

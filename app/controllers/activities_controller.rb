@@ -10,7 +10,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.id = Activity.last.id + 1
     if @activity.save
-      redirect_to '/trackers', notice: "#{@activity.name} successfully created"
+      redirect_to home_url, notice: "#{@activity.name} successfully created"
     else
       render :new
     end
@@ -25,7 +25,7 @@ class ActivitiesController < ApplicationController
 
   def update
     if @activity.update_attributes(activity_params) && current_user.admin == 1
-      redirect_to '/trackers', notice: "#{@activity.name} successfully updated"
+      redirect_to home_url, notice: "#{@activity.name} successfully updated"
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.destroy
-    redirect_to '/trackers', notice: "#{@activity.name} successfully deleted"
+    redirect_to home_url, notice: "#{@activity.name} successfully deleted"
   end
 
   private
