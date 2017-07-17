@@ -1,4 +1,15 @@
-<%= render 'activity-details' %>
+<h3 class="home-header" style="text-align: left;"><%= @tracker.activity.name %> Details</h3>
+
+<p class="home-text" id="paragraph"><b>Due:</b> <%= @tracker.due_date.strftime('%A, %B %d @ %H:%M') %></p>
+
+<p class="home-text" id="paragraph"><%= @tracker.activity.description %></p>
+
+<p class="home-text"><b>Default Questions:</b></p>
+<p class="home-text"><b>1)</b> <%= @tracker.activity.task_one %></p>
+<p class="home-text"><b>2)</b> <%= @tracker.activity.task_two %></p>
+<p class="home-text"><b>3)</b> <%= @tracker.activity.task_three %></p>
+<p class="home-text"><b>4)</b> <%= @tracker.activity.task_four %></p>
+<p class="home-text"><b>5)</b> <%= @tracker.activity.task_five %></p>
 
 <h3 class="home-header">Answer below:</h3>
 

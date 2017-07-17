@@ -1,12 +1,6 @@
 class TrackersController < ApplicationController
   before_action :authenticate_user!
   before_action :load_tracker, only: [:show, :edit, :update, :destroy]
-  # before_action :load_tracked_activity, only: [:show, :edit, :update]
-
-  def new
-    @tracker = Tracker.new
-    @activity = Activity.new
-  end
 
   def create
     @tracker = Tracker.new(tracker_params)
@@ -56,6 +50,7 @@ class TrackersController < ApplicationController
 
   def tracker_params
     params.require(:tracker).permit(:status, :user_id, :activity_id,
-    :user_email, :feedback_id, :contact, :due_date)
+    :user_email, :feedback_id, :contact, :due_date, :question_one,
+    :question_two, :question_three, :question_four, :question_five)
   end
 end

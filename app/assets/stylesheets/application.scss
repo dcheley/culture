@@ -66,6 +66,7 @@
 
 .green-text {
   color: #00796b;
+  display: inline;
 }
 
 .link,
@@ -130,10 +131,23 @@
   margin-bottom: 15px;
 }
 
+.home-text {}
+
 .half {
   float: left;
   width: 50%;
   margin-top: 20px;
+}
+
+#tracker-edit {
+  width: 65%;
+  margin-left: 10%;
+  margin-right: 0;
+  padding-bottom: 15px;
+}
+
+#tracker-edit .field-input {
+  width: 300px;
 }
 
 .error-list,
@@ -147,8 +161,6 @@
 }
 
 #paragraph {
-  margin-left: 15%;
-  margin-right: 15%;
   margin-bottom: 30px;
 }
 
@@ -158,7 +170,13 @@
   text-align: center;
 }
 
-.wrap {
+.container {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.block-wrap {
   display: inline-block;
   text-align: left;
 }

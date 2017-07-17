@@ -55,7 +55,7 @@
   <% end %>
 
   <div class="half-screen">
-    <div class="wrap">
+    <div class="block-wrap">
       <!-- Change to name eventually & make a variable current_user.employees.find_by(email: new_hire_email) -->
       <h4 class="home-header"><%= current_user.new_hire_email %>'s Activities</h4>
       <% if @trackers != nil %>
@@ -69,7 +69,7 @@
   </div>
 
   <div class="half-screen">
-    <div class="wrap">
+    <div class="block-wrap">
       <h4 class="home-header">Choose Options</h4>
       <% @activities.each do |a| %>
         <ul class="list">
@@ -78,6 +78,7 @@
       <% end %>
     </div>
   </div>
+  
 <!-- Normal User View -->
 <% else %>
   <h3 class="home-title">Welcome to the Organization</h3>

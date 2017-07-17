@@ -1,13 +1,18 @@
-<!-- Make This Into Tracker Create form with new_hire_email plugged in & editable questions -->
-<h3 class="home-header"><%= @activity.name %> Details</h3>
+<!-- Make This Into Track er Create form with new_hire_email plugged in & editable questions -->
+<div class="container">
+  <div class="wrap">
+    <h3 class="home-header"><%= @activity.name %> Details</h3>
 
-<p class="home-text" id="paragraph"><%= @activity.description %></p>
+    <p class="home-text" id="paragraph"><%= @activity.description %></p>
 
-<p class="home-text"><b>Question 1:</b> <%= @activity.task_one %></p>
-<p class="home-text"><b>Question 2:</b> <%= @activity.task_two %></p>
-<p class="home-text"><b>Question 3:</b> <%= @activity.task_three %></p>
-<p class="home-text"><b>Question 4:</b> <%= @activity.task_four %></p>
-<p class="home-text"><b>Question 5:</b> <%= @activity.task_five %></p>
+    <p class="home-text"><b>Default Questions:</b></p>
+    <p class="home-text"><b>1)</b> <%= @activity.task_one %></p>
+    <p class="home-text"><b>2)</b> <%= @activity.task_two %></p>
+    <p class="home-text"><b>3)</b> <%= @activity.task_three %></p>
+    <p class="home-text"><b>4)</b> <%= @activity.task_four %></p>
+    <p class="home-text"><b>5)</b> <%= @activity.task_five %></p>
+  </div>
+</div>
 
 <%= form_for(@tracker) do |f| %>
   <% if @tracker.errors.any? %>
@@ -18,7 +23,6 @@
         <li class="error-msg"><%= msg %></li>
       <% end %>
     </ul>
-
   <% end %>
 
   <div class="field">
