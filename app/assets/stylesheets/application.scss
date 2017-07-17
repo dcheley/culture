@@ -11,6 +11,10 @@
    text-decoration: none;
  }
 
+ .glyphicon {
+   color: #00796b;
+ }
+
  .navbar {
   border: none;
  }
@@ -67,6 +71,14 @@
 .green-text {
   color: #00796b;
   display: inline;
+}
+
+#red-text {
+  color: #e53935;
+}
+
+#red-text a:hover {
+  color: red;
 }
 
 .link,

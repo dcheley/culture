@@ -74,12 +74,12 @@
     <% if @tracker.status != 1 %>
       <%= form_for(@tracker) do |f| %>
         <%= f.hidden_field :status, value: 1 %>
-        <%= f.submit "MARK COMPLETE (DON'T FORGET TO SAVE ANSWERS FIRST)", class:"submit", id:"blue" %>
+        <%= f.submit "MARK COMPLETE (DON'T FORGET TO SAVE ANSWERS FIRST)", class:"link" %>
       <% end %>
     <% else %>
       <%= form_for(@tracker) do |f| %>
         <%= f.hidden_field :status, value: nil %>
-        <%= f.submit 'MARK INCOMPLETE', class:"submit", id:"red" %>
+        <%= f.submit 'MARK INCOMPLETE', id:"red-text" %>
       <% end %>
     <% end %>
   </div>
