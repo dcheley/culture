@@ -1,5 +1,5 @@
 class Tracker < ApplicationRecord
-  belongs_to :users, optional: true, foreign_key: :user_email, primary_key: :email
+  belongs_to :user, foreign_key: :user_email, primary_key: :email
   belongs_to :activity
   belongs_to :feedback, optional: true
 
