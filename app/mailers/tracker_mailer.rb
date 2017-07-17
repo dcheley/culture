@@ -1,6 +1,4 @@
 class TrackerMailer < ApplicationMailer
-  default from: 'notifications@shape.com'
-
   def employee_activity_email(user, tracker)
     @user = user
     @tracker = tracker
