@@ -1,11 +1,11 @@
 <!-- Admin User View -->
 <% if current_user.admin == 1 %>
-<h3 class="home-header">Register a New Hire</h3>
+<h4 class="home-header">Register a New Hire</h4>
 
   <div class="form-container">
     <%= form_for(@user, url: :register_employee) do |f| %>
       <% if @user.errors.any? %>
-        <h3 class="error-header"><%= pluralize(@user.errors.count, "error") %> occurred!</h3>
+        <h4 class="error-header"><%= pluralize(@user.errors.count, "error") %> occurred!</h4>
 
         <ul class="error-list">
           <% @user.errors.full_messages.each do |msg| %>
@@ -16,8 +16,7 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, placeholder:"example@email.com", autofocus: true %>
       </div>
 
       <%= f.hidden_field :password, value: '123456' %>
@@ -32,7 +31,7 @@
   <% if @users != nil %>
     <p class="home-header">OR</p>
 
-    <h3 class="home-header">
+    <h4 class="home-header">
       Start integrating by picking activities for
       <div class="dropdown" style="display: inline">
         <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdown3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,13 +51,13 @@
           <% end %>
         </div>
       </div>
-    </h3>
+    </h4>
   <% end %>
 
   <div class="half-screen">
     <div class="wrap">
       <!-- Change to name eventually & make a variable current_user.employees.find_by(email: new_hire_email) -->
-      <h3 class="home-header"><%= current_user.new_hire_email %>'s Activities</h3>
+      <h4 class="home-header"><%= current_user.new_hire_email %>'s Activities</h4>
       <% if @trackers != nil %>
         <% @trackers.each do |t| %>
           <ul class="list">
@@ -71,7 +70,7 @@
 
   <div class="half-screen">
     <div class="wrap">
-      <h3 class="home-header">Choose Options</h3>
+      <h4 class="home-header">Choose Options</h4>
       <% @activities.each do |a| %>
         <ul class="list">
           <br /><li><%= link_to a.name, "/users/#{current_user.id}/activities/#{a.id}", class:"link" %></li>
@@ -81,7 +80,7 @@
   </div>
 <!-- Normal User View -->
 <% else %>
-  <h1 class="home-title">Welcome to the Organization</h1>
+  <h3 class="home-title">Welcome to the Organization</h3>
 
   <p class="welcome-text">This is Shape, your employee integration application!</p>
 
