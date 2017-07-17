@@ -17,7 +17,7 @@
 
   <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
 
-  <%= f.hidden_field :activity_id, value: @activity.id %>
+  <%= f.hidden_field :activity_id, value: @tracker.activity.id %>
 
   <div class="field">
     <%= f.label :contact, "Employee Contact", class:"field-label" %>

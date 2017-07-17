@@ -1,7 +1,7 @@
 class TrackersController < ApplicationController
   before_action :authenticate_user!
   before_action :load_tracker, only: [:show, :edit, :update, :destroy]
-  before_action :load_tracked_activity, only: [:show, :edit, :update]
+  # before_action :load_tracked_activity, only: [:show, :edit, :update]
 
   def new
     @tracker = Tracker.new
@@ -32,12 +32,12 @@ class TrackersController < ApplicationController
   def update
     if current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status == 1
       current_user.reward.update_attributes(award: current_user.reward.award + 1)
-      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} completed!"
+      redirect_to "/users/#{current_user.id}", notice: "#{@tracker.activity.name} completed!"
     elsif current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status != 1
       current_user.reward.update_attributes(award: current_user.reward.award - 1)
-      redirect_to "/users/#{current_user.id}", notice: "#{@activity.name} marked incomplete"
+      redirect_to "/users/#{current_user.id}", notice: "#{@tracker.activity.name} marked incomplete"
     elsif current_user.admin == 1 && @tracker.update_attributes(tracker_params)
-      redirect_to home_url, notice: "#{@activity.name} successfully updated"
+      redirect_to home_url, notice: "#{@tracker.activity.name} successfully updated"
     else
       render :edit
     end
@@ -52,10 +52,6 @@ class TrackersController < ApplicationController
 
   def load_tracker
     @tracker = Tracker.find(params[:id])
-  end
-
-  def load_tracked_activity
-    @activity = Activity.find_by(id: @tracker.activity_id)
   end
 
   def tracker_params
