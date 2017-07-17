@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717000928) do
+ActiveRecord::Schema.define(version: 20170717213822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20170717000928) do
   create_table "trackers", force: :cascade do |t|
     t.integer "activity_id"
     t.string "user_email"
-    t.string "contact"
+    t.string "contact_one"
     t.integer "status"
     t.integer "feedback_id"
     t.datetime "created_at", null: false
@@ -76,6 +76,10 @@ ActiveRecord::Schema.define(version: 20170717000928) do
     t.string "question_three"
     t.string "question_four"
     t.string "question_five"
+    t.string "contact_two"
+    t.string "contact_three"
+    t.string "contact_four"
+    t.string "contact_five"
   end
 
   create_table "users", force: :cascade do |t|
