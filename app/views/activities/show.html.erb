@@ -19,9 +19,9 @@
   </div>
 </div>
 
-<div class="half-screen">
-  <div class="block-wrap" id="tracker-edit">
-    <%= form_for(@tracker) do |f| %>
+<%= form_for(@tracker) do |f| %>
+  <div class="half-screen">
+    <div class="block-wrap" id="tracker-edit">
       <% if @tracker.errors.any? %>
         <h3 class="error-header"><%= pluralize(@tracker.errors.count, "error") %> occurred!</h3>
 
@@ -61,8 +61,8 @@
         <%= f.label :question_five, "5", class:"field-label" %>
         <%= f.text_field :question_five, placeholder:"#{@tracker.question_five}", class:"field-input" %>
       </div>
+   </div>
   </div>
-</div>
 
     <div class="container" style="clear: both;">
       <div class="field">
@@ -98,5 +98,5 @@
       <%= f.submit "ASSIGN", class:"submit", id:"green" %>
 
       <%= link_to "BACK", home_url, class:"submit", id:"green" %>
-    <% end %>
     </div>
+  <% end %>

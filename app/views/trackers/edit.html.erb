@@ -21,9 +21,9 @@
   </div>
 </div>
 
-<div class="half-screen">
-  <div class="block-wrap" id=tracker-edit>
-    <%= form_for(@tracker) do |f| %>
+<%= form_for(@tracker) do |f| %>
+  <div class="half-screen">
+    <div class="block-wrap" id=tracker-edit>
       <% if @tracker.errors.any? %>
         <h3 class="error-header"><%= pluralize(@tracker.errors.count, "error") %> occurred!</h3>
 
@@ -33,7 +33,7 @@
           <% end %>
         </ul>
       <% end %>
-  
+
       <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
 
       <%= f.hidden_field :activity_id, value: @tracker.activity.id %>
@@ -101,8 +101,7 @@
       <%= f.submit "SAVE", class:"submit", id:"green" %>
 
       <%= link_to "BACK", home_url, class:"submit", id:"green" %>
+    </div>
+<% end %>
 
-    <% end %>
-
-    <%= button_to 'DELETE', @tracker, method: :delete, data: {confirm: "Are you sure?"}, class:"delete", id:"red" %>
-  </div>
+<%= button_to 'DELETE', @tracker, method: :delete, data: {confirm: "Are you sure?"}, class:"delete", id:"red" %>
