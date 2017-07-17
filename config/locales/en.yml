@@ -35,14 +35,31 @@ en:
       activity:
         name: "Name of exercise"
         contact: "Employee contact"
-        user_id: "New hire"
+        user_id: "Admin id"
+      tracker:
+        contact_one: "1st Employee contact"
+        contact_two: "2nd Employee contact"
+        contact_three: "3rd Employee contact"
+        contact_four: "4th Employee contact"
+        contact_five: "5th Employee contact"
+        user_email: "New hire email"
     errors:
       models:
         activity:
           attributes:
             name:
               blank: "is required"
-            contact:
+        tracker:
+          attributes:
+            contact_one:
               invalid: "must be a valid email address"
-            user_id:
+            contact_two:
+              invalid: "must be a valid email address"
+            contact_three:
+              invalid: "must be a valid email address"
+            contact_four:
+              invalid: "must be a valid email address"
+            contact_five:
+              invalid: "must be a valid email address"
+            user_email:
               invalid: "must be a valid email address"
