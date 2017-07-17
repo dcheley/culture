@@ -1,10 +1,16 @@
 <!-- Make This Into Track er Create form with new_hire_email plugged in & editable questions -->
+<h4 class="home-header"><%= "Assign this activity to " + current_user.new_hire_email + "?" %></h4>
+
 <div class="container">
-  <div class="wrap">
-    <h3 class="home-header"><%= @activity.name %> Details</h3>
+  <div class="block-wrap">
+    <h4 class="home-header"><%= @activity.name %> Details</h4>
 
     <p class="home-text" id="paragraph"><%= @activity.description %></p>
+  </div>
+</div>
 
+<div class="half-screen">
+  <div class="block-wrap" id="tracker-edit">
     <p class="home-text"><b>Default Questions:</b></p>
     <p class="home-text"><b>1)</b> <%= @activity.task_one %></p>
     <p class="home-text"><b>2)</b> <%= @activity.task_two %></p>
@@ -14,37 +20,64 @@
   </div>
 </div>
 
-<%= form_for(@tracker) do |f| %>
-  <% if @tracker.errors.any? %>
-    <h3 class="error-header"><%= pluralize(@tracker.errors.count, "error") %> occurred!</h3>
+<div class="half-screen">
+  <div class="block-wrap" id="tracker-edit">
+    <%= form_for(@tracker) do |f| %>
+      <% if @tracker.errors.any? %>
+        <h3 class="error-header"><%= pluralize(@tracker.errors.count, "error") %> occurred!</h3>
 
-    <ul class="error-list">
-      <% @tracker.errors.full_messages.each do |msg| %>
-        <li class="error-msg"><%= msg %></li>
+        <ul class="error-list">
+          <% @tracker.errors.full_messages.each do |msg| %>
+            <li class="error-msg"><%= msg %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :user_email, "Assign this activity to", class:"field-label" %>
-    <label class="green-text"><%= current_user.new_hire_email + "?" %></label>
+      <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
+      <%= f.hidden_field :activity_id, value: @activity.id %>
+
+      <p class="home-text"><b>Customize Questions:</b></p>
+
+      <div class="field">
+        <%= f.label :question_one, "1)", class:"field-label" %>
+        <%= f.text_field :question_one, placeholder:"#{@tracker.question_one}", class:"field-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :question_two, "2)", class:"field-label" %>
+        <%= f.text_field :question_two, placeholder:"#{@tracker.question_two}", class:"field-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :question_three, "3)", class:"field-label" %>
+        <%= f.text_field :question_three, placeholder:"#{@tracker.question_three}", class:"field-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :question_four, "4)", class:"field-label" %>
+        <%= f.text_field :question_four, placeholder:"#{@tracker.question_four}", class:"field-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :question_five, "5", class:"field-label" %>
+        <%= f.text_field :question_five, placeholder:"#{@tracker.question_five}", class:"field-input" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :contact, "Employee Contact", class:"field-label" %>
+        <%= f.text_field :contact, placeholder:"example@email.com", class:"field-input" %>
+      </div>
   </div>
+</div>
 
-  <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
-  <%= f.hidden_field :activity_id, value: @activity.id %>
+    <div class="container" style="clear: both;">
+      <div class="field">
+        <%= f.label :due_date, "Due Date", class:"field-label" %>
+        <%= f.datetime_select :due_date, class:"field-input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :contact, "Employee Contact", class:"field-label" %>
-    <%= f.text_field :contact, placeholder:"example@email.com", class:"field-input" %>
-  </div>
+      <%= f.submit "ASSIGN", class:"submit", id:"green" %>
 
-  <div class="field">
-    <%= f.label :due_date, "Due Date", class:"field-label" %>
-    <%= f.datetime_select :due_date, class:"field-input" %>
-  </div>
-
-  <%= f.submit "ASSIGN", class:"submit", id:"green" %>
-
-  <%= link_to "BACK", home_url, class:"submit", id:"green" %>
-
-<% end %>
+      <%= link_to "BACK", home_url, class:"submit", id:"green" %>
+    <% end %>
+    </div>
