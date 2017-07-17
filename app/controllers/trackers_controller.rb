@@ -4,11 +4,17 @@ class TrackersController < ApplicationController
 
   def create
     @tracker = Tracker.new(tracker_params)
-    @activity = Activity.new
-    if @tracker.save
-      redirect_to home_url, notice: "Activity successfully assigned to #{@tracker.user_email}"
-    else
-      render :new
+    @activity = Activity.find_by(params[:activity_id])
+    @user = @tracker.user
+    respond_to do |format|
+      if @tracker.save
+        TrackerMailer.employee_activity_email(@user, @tracker).deliver_later
+        format.html { redirect_to(home_url, notice: "Activity successfully assigned to #{@tracker.user_email}") }
+        format.json { render json: home_url, status: :created, location: home_url }
+      else
+        format.html { render 'activities#show' }
+        format.json { render json: @tracker.errors, status: :unprocessable_entity }
+      end
     end
   end
 
