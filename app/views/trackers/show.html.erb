@@ -1,72 +1,86 @@
-<h3 class="home-header" style="text-align: left;"><%= @tracker.activity.name %> Details</h3>
+<h3 class="home-header"><%= @tracker.activity.name %> Details</h3>
+<div class="container">
+  <div class="block-wrap">
+    <p class="home-text" id="paragraph"><b>Due:</b> <%= @tracker.due_date.strftime('%A, %B %d @ %H:%M') %></p>
 
-<p class="home-text" id="paragraph"><b>Due:</b> <%= @tracker.due_date.strftime('%A, %B %d @ %H:%M') %></p>
+    <p class="home-text" id="paragraph"><%= @tracker.activity.description %></p>
+  </div>
+</div>
 
-<p class="home-text" id="paragraph"><%= @tracker.activity.description %></p>
+<div class="half-screen">
+  <div class="block-wrap" id="tracker-edit">
+    <p class="home-text"><b>Default Questions:</b></p>
+    <p class="home-text"><b>1)</b> <%= @tracker.question_one %></p>
+    <p class="home-text"><b>2)</b> <%= @tracker.question_two %></p>
+    <p class="home-text"><b>3)</b> <%= @tracker.question_three %></p>
+    <p class="home-text"><b>4)</b> <%= @tracker.question_four %></p>
+    <p class="home-text"><b>5)</b> <%= @tracker.question_five %></p>
+  </div>
+</div>
 
-<p class="home-text"><b>Default Questions:</b></p>
-<p class="home-text"><b>1)</b> <%= @tracker.activity.task_one %></p>
-<p class="home-text"><b>2)</b> <%= @tracker.activity.task_two %></p>
-<p class="home-text"><b>3)</b> <%= @tracker.activity.task_three %></p>
-<p class="home-text"><b>4)</b> <%= @tracker.activity.task_four %></p>
-<p class="home-text"><b>5)</b> <%= @tracker.activity.task_five %></p>
+<div class="half-screen">
+  <div class="block-wrap" id="tracker-edit">
+    <p class="home-text"><b>Answer below:</b></p>
 
-<h3 class="home-header">Answer below:</h3>
+    <%= form_for([@tracker, @feedback]) do |f| %>
+      <div class="field">
+        <%= f.label :first_takeaway, "First Answer", class:"field-label" %>
+        <%= f.text_field :first_takeaway, class:"field-input" %>
+        <% if @feedback.first_takeaway.present? %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% end %>
+      </div><br />
 
-<%= form_for([@tracker, @feedback]) do |f| %>
-  <div class="field">
-    <%= f.label :first_takeaway, "First Answer", class:"field-label" %>
-    <%= f.text_field :first_takeaway, class:"field-input" %>
-    <% if @feedback.first_takeaway.present? %>
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <div class="field">
+        <%= f.label :second_takeaway, "Second Answer", class:"field-label" %>
+        <%= f.text_field :second_takeaway, class:"field-input" %>
+        <% if @feedback.second_takeaway.present? %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% end %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label :third_takeaway, "Third Answer", class:"field-label" %>
+        <%= f.text_field :third_takeaway, class:"field-input" %>
+        <% if @feedback.third_takeaway.present? %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% end %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label :fourth_takeaway, "Fourth Answer", class:"field-label" %>
+        <%= f.text_field :fourth_takeaway, class:"field-input" %>
+        <% if @feedback.fourth_takeaway.present? %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% end %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label :fifth_takeaway, "Fifth Answer" ,class:"field-label" %>
+        <%= f.text_field :fifth_takeaway, class:"field-input" %>
+        <% if @feedback.fifth_takeaway.present? %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% end %>
+      </div><br />
+    </div>
+  </div>
+
+      <%= f.submit "SAVE ANSWERS", class:"submit", id:"green" %>
+
+      <%= link_to "BACK", user_url(current_user), class:"submit", id:"green" %>
     <% end %>
-  </div><br />
 
-  <div class="field">
-    <%= f.label :second_takeaway, "Second Answer", class:"field-label" %>
-    <%= f.text_field :second_takeaway, class:"field-input" %>
-    <% if @feedback.second_takeaway.present? %>
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    <!-- Change to checkmark icon or something -->
+    <% if @tracker.status != 1 %>
+      <%= form_for(@tracker) do |f| %>
+        <%= f.hidden_field :status, value: 1 %>
+        <%= f.submit "MARK COMPLETE (DON'T FORGET TO SAVE ANSWERS FIRST)", class:"submit", id:"blue" %>
+      <% end %>
+    <% else %>
+      <%= form_for(@tracker) do |f| %>
+        <%= f.hidden_field :status, value: nil %>
+        <%= f.submit 'MARK INCOMPLETE', class:"submit", id:"red" %>
+      <% end %>
     <% end %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :third_takeaway, "Third Answer", class:"field-label" %>
-    <%= f.text_field :third_takeaway, class:"field-input" %>
-    <% if @feedback.third_takeaway.present? %>
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-    <% end %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :fourth_takeaway, "Fourth Answer", class:"field-label" %>
-    <%= f.text_field :fourth_takeaway, class:"field-input" %>
-    <% if @feedback.fourth_takeaway.present? %>
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-    <% end %>
-  </div><br />
-
-  <div class="field">
-    <%= f.label :fifth_takeaway, "Fifth Answer" ,class:"field-label" %>
-    <%= f.text_field :fifth_takeaway, class:"field-input" %>
-    <% if @feedback.fifth_takeaway.present? %>
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-    <% end %>
-  </div><br />
-
-  <%= f.submit "SAVE ANSWERS", class:"submit", id:"green" %>
-
-  <%= link_to "BACK", user_url(current_user), class:"submit", id:"green" %>
-<% end %>
-
-<% if @tracker.status != 1 %>
-  <%= form_for(@tracker) do |f| %>
-    <%= f.hidden_field :status, value: 1 %>
-    <%= f.submit "MARK COMPLETE (DON'T FORGET TO SAVE ANSWERS FIRST)", class:"submit", id:"blue" %>
-  <% end %>
-<% else %>
-  <%= form_for(@tracker) do |f| %>
-    <%= f.hidden_field :status, value: nil %>
-    <%= f.submit 'MARK INCOMPLETE', class:"submit", id:"red" %>
-  <% end %>
-<% end %>
+  </div>
+</div>

@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
     respond_to do |format|
       if @feedback.save
         @tracker.update_attributes(feedback_id: @feedback.id)
-        format.html { redirect_to activity_url(@tracker), notice:"Feedback sent" }
+        format.html { redirect_to tracker_url(@tracker), notice:"Feedback sent" }
         format.json { render json: @tracker, status: :created, location: @tracker }
       else
         format.html { render tracker_url(@tracker) }
