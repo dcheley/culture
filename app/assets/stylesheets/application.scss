@@ -99,6 +99,33 @@
   line-height: 50px;
  }
 
+.submit-link,
+.delete-link {
+  border-width: thin;
+  background-color: white;
+  padding: 10px;
+}
+
+.submit-link {
+  border-color: #00796b;
+  color: #00796b;
+}
+
+.submit-link:hover {
+  border-color: #004d40;
+  color: #004d40;
+}
+
+.delete-link {
+  border-color: #e53935;
+  color: #e53935;
+}
+
+.delete-link:hover {
+  border-color: red;
+  color: red;
+}
+
  #dropdown-link {
    color: #337ab7;
    font-size: 16px;
