@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@shape-culture.com'
+  default from: Rails.application.secrets.GMAIL_USERNAME
   layout 'mailer'
 end
