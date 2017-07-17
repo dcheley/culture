@@ -12,7 +12,7 @@ class TrackersController < ApplicationController
         format.html { redirect_to(home_url, notice: "Activity successfully assigned to #{@tracker.user_email}") }
         format.json { render json: home_url, status: :created, location: home_url }
       else
-        format.html { render 'activities#show' }
+        format.html { render 'activities/show' }
         format.json { render json: @tracker.errors, status: :unprocessable_entity }
       end
     end
