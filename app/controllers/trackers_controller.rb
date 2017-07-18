@@ -31,16 +31,24 @@ class TrackersController < ApplicationController
   end
 
   def update
-    if current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status == 1
-      current_user.reward.update_attributes(award: current_user.reward.award + 1)
-      redirect_to "/users/#{current_user.id}", notice: "#{@tracker.activity.name} completed!"
-    elsif current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status != 1
-      current_user.reward.update_attributes(award: current_user.reward.award - 1)
-      redirect_to "/users/#{current_user.id}", notice: "#{@tracker.activity.name} marked incomplete"
-    elsif current_user.admin == 1 && @tracker.update_attributes(tracker_params)
-      redirect_to home_url, notice: "#{@tracker.activity.name} successfully updated"
-    else
-      render :edit
+    @user = User.find_by(params[:user_id])
+    respond_to do |format|
+      if current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status == 1
+        current_user.reward.update_attributes(award: current_user.reward.award + 1)
+        format.html { redirect_to(user_url(@user), notice: "#{@tracker.activity.name} completed!") }
+        format.json { render json: @user, status: :updated, location: @user }
+      elsif current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status != 1
+        current_user.reward.update_attributes(award: current_user.reward.award - 1)
+        format.html { redirect_to user_url(@user), notice: "#{@tracker.activity.name} marked incomplete" }
+        format.json { render json: @user, status: :updated, location: @user }
+      elsif current_user.admin == 1 && @tracker.update_attributes(tracker_params)
+        TrackerMailer.employee_activity_email(@tracker).deliver_later
+        format.html { redirect_to(home_url, notice: "#{@tracker.activity.name} successfully updated") }
+        format.json { render json: home_url, status: :updated, location: home_url }
+      else
+        format.html { render :edit }
+        format.json { render json: @tracker.errors, status: :unprocessable_entity }
+      end
     end
   end
 
