@@ -7,7 +7,7 @@ class TrackerMailer < ApplicationMailer
 
     @url = 'http://shape-culture.herokuapp.com'
     mail(
-      to: @employees.map(&:contact).uniq,
+      to: @employees,
       subject: 'New Shape Activity'
     )
   end
