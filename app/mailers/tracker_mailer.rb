@@ -1,10 +1,14 @@
 class TrackerMailer < ApplicationMailer
   def employee_activity_email(tracker)
     @tracker = tracker
-    @user = tracker.user
-    @admin = @user.administrator
+    @new_hire = tracker.user
+    @admin = @new_hire.administrator
+    @employees = [@tracker.contact_one, @tracker.contact_two]
 
     @url = 'http://shape-culture.herokuapp.com'
-    mail(to: @user.email, subject: 'New Shape Activity')
+    mail(
+      to: @employees.map(&:contact).uniq,
+      subject: 'New Shape Activity'
+    )
   end
 end

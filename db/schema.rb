@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717213822) do
+ActiveRecord::Schema.define(version: 20170718144037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.text "description"
+    t.text "admin_description"
     t.string "task_one"
     t.string "task_two"
     t.string "task_three"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170717213822) do
     t.decimal "prize", precision: 6, scale: 2
     t.integer "user_id"
     t.integer "content_id"
+    t.string "new_hire_description"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -38,9 +39,10 @@ ActiveRecord::Schema.define(version: 20170717213822) do
     t.string "task_four"
     t.string "task_five"
     t.decimal "prize", precision: 6, scale: 2
-    t.text "description"
+    t.text "admin_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "new_hire_description"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -98,6 +100,8 @@ ActiveRecord::Schema.define(version: 20170717213822) do
     t.integer "admin"
     t.string "new_hire_email"
     t.integer "admin_id"
+    t.string "name"
+    t.string "organization"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

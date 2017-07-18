@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-    :new_hire_email)
+    :new_hire_email, :name, :organization)
   end
 
   def seed_admin(user)
