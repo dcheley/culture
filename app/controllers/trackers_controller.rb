@@ -8,8 +8,8 @@ class TrackersController < ApplicationController
     @user = @tracker.user
     respond_to do |format|
       if @tracker.save
-        TrackerMailer.employee_activity_email(@user, @tracker).deliver_later
-        format.html { redirect_to(home_url, notice: "Activity successfully assigned to #{@tracker.user_email}") }
+        TrackerMailer.employee_activity_email(@tracker).deliver_later
+        format.html { redirect_to(home_url, notice: "Activity successfully assigned to #{@tracker.user.name}") }
         format.json { render json: home_url, status: :created, location: home_url }
       else
         format.html { render 'activities/show' }

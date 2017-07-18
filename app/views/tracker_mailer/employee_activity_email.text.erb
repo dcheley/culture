@@ -1,5 +1,9 @@
-Hello from shape-culture.com, <%= @user.email %>
+Hi <%= @user.name %>,
 
-You have have been registered to <%= @tracker.activity.name %>.
+We are emailing to notify you that <%= @admin.name %> has assigned you to facilitate an integration activity for the new hire <%= @user.email %>. The activity you are required to facilitate is <%= @tracker.activity.name %> which will consist of <%= @tracker.activity.description %>. The date you must do this by is <%= @tracker.due_date %>.
 
-Thanks and have a great day!
+Please reach out to <%= @user.name %>, at <%= @user.email %> and schedule a time for this activity to take place.
+
+Thanks,
+
+Shape Team
