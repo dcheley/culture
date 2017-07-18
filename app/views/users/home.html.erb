@@ -1,36 +1,6 @@
 <!-- Admin User View -->
 <% if current_user.admin == 1 %>
-<h4 class="home-header">Register a New Hire</h4>
-
-  <div class="form-container">
-    <%= form_for(@user, url: :register_employee) do |f| %>
-      <% if @user.errors.any? %>
-        <h4 class="error-header"><%= pluralize(@user.errors.count, "error") %> occurred!</h4>
-
-        <ul class="error-list">
-          <% @user.errors.full_messages.each do |msg| %>
-            <li class="error-msg"><%= msg %></li>
-          <% end %>
-        </ul>
-      <% end %>
-
-      <div class="field">
-        <%= f.label :name, class:"field-label" %>
-        <%= f.text_field :name, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
-      </div>
-
-      <div class="field">
-        <%= f.email_field :email, placeholder:"example@email.com", autofocus: true %>
-      </div>
-
-      <%= f.hidden_field :password, value: '123456' %>
-      <%= f.hidden_field :password_confirmation, value: '123456' %>
-
-      <div class="actions" style="margin-top: 10px;">
-        <%= f.submit "REGISTER", class:"submit", id:"blue" %>
-      </div><br />
-    <% end %>
-  </div>
+  <h4 class="home-header"><%= link_to "Register a New Hire", new_user_url, class:"dropdown-link" %></h4>
 
   <% if @users != nil %>
     <p class="home-header">OR</p>

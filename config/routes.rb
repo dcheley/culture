@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'users/home' => 'users#home', as: :home
-  post 'users/home' => 'users#create', as: :register_employee
+  post 'users/new' => 'users#create', as: :register_employee
   patch 'users/home' => 'users#update', as: :select_employee
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:new, :create, :index, :show]
   resources :rewards, only: [:new, :create, :index, :edit, :update, :destroy]
   resources :activities, only: [:new, :create, :edit, :update, :destroy]
   resources :trackers, only: [:create, :show, :edit, :update, :destroy]

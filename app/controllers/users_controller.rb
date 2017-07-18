@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    @user = User.new
     if current_user.reward == nil
       Reward.create(name: "Progress", user_id: current_user.id, award: 0)
     end
@@ -21,14 +20,17 @@ class UsersController < ApplicationController
     @activity.trackers.build
   end
 
+  def new
+    @user = User.new
+  end
+
   def create
     @user = User.create(user_params)
     if @user.save
       current_user.update_attributes(new_hire_email: @user.email)
-      @user.update_attributes(admin_id: current_user.id)
-      redirect_to home_url, notice: 'New hire registered, assign activities to them below'
+      redirect_to home_url, notice: "#{@user.name} registered, assign activities to them below"
     else
-      render :home
+      render :new
     end
   end
 
