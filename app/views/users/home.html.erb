@@ -85,21 +85,25 @@
 
 <!-- Normal User View -->
 <% else %>
-  <h3 class="home-title">Welcome to the Organization</h3>
+<div class="container">
+  <div class="block-wrap">
+    <h3 class="home-title">Welcome to the Organization</h3>
 
-  <p class="welcome-text">This is Shape, your employee integration application!</p>
+    <p class="welcome-text">This is Shape, your employee integration application!</p>
 
-  <p class="welcome-text">
-    The app will provide you with integration activities so that  gain a deeper
-    understanding of your workplace's culture and its employees.
-  </p>
+    <p class="welcome-text">
+      The app will provide you with integration activities so that  gain a deeper
+      understanding of your workplace's culture and its employees.
+    </p>
 
-  <p class="welcome-text">
-    In order to being learning about the common set of values, norms and behaviours
-    of your workplace, click the "Get Started" button below.
-  </p>
+    <p class="welcome-text">
+      In order to being learning about the common set of values, norms and behaviours
+      of your workplace, click the "Get Started" button below.
+    </p>
 
-  <div class="link-wrap">
-    <%= link_to "Get Started", user_url(current_user), class:"submit", id:"blue" %>
+    <div class="link-wrap">
+      <%= link_to "Get Started", user_url(current_user), class:"submit", id:"blue" %>
+    </div>
   </div>
+</div>
 <% end %>
