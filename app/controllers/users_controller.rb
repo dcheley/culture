@@ -25,12 +25,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    if @user.save
-      current_user.update_attributes(new_hire_email: @user.email)
-      redirect_to home_url, notice: "#{@user.name} registered, assign activities to them below"
-    else
-      render :new
+    @user = User.new(user_params)
+    respond_to do |format|
+      if @user.save
+        UserMailer.new_hire_email(@user).deliver_later
+        current_user.update_attributes(new_hire_email: @user.email)
+        format.html { redirect_to home_url, notice: "#{@user.name} registered, assign activities to them below" }
+        format.json { render json: home_url, status: :created, location: home_url }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -54,11 +59,10 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-    :new_hire_email, :name, :organization, :admin_id)
+    :new_hire_email, :name, :organization, :admin_id, :title)
   end
 
   def seed_admin(user)
-    # user = User.find_by(params[:email])
     contents = Content.all
     contents.each do |c|
       a = Activity.create(c.attributes.slice(*Activity.attribute_names))

@@ -15,5 +15,7 @@ class User < ApplicationRecord
   has_many :feedbacks, through: :trackers
 
   validates :name, presence: true
+  validates :title, presence: true
+  validates :organization, presence: true
   validates :new_hire_email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => [:create, :update] }, allow_blank: true
 end
