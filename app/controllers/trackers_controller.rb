@@ -27,6 +27,7 @@ class TrackersController < ApplicationController
   end
 
   def edit
+    @new_hire = current_user.employees.find_by(email: current_user.new_hire_email)
   end
 
   def update

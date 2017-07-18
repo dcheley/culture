@@ -40,7 +40,7 @@
       <div class="dropdown" style="display: inline">
         <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdown3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div id="dropdown-link">
-            <%= current_user.new_hire_email %>
+            <%= @new_hire.name %>
             <span class="caret"></span>
           </div>
         </a>
@@ -50,7 +50,7 @@
           <% @users.each do |e| %>
             <%= form_for(current_user, url: :select_employee) do |f| %>
               <%= f.hidden_field :new_hire_email, value: e.email %>
-              <%= f.submit "#{e.email}", id:"list-link" %>
+              <%= f.submit "#{e.name}", id:"list-link" %>
             <% end %>
           <% end %>
         </div>
@@ -71,7 +71,7 @@
   <div class="half-screen">
     <div class="block-wrap">
       <!-- Change to name eventually & make a variable current_user.employees.find_by(email: new_hire_email) -->
-      <h4 class="home-header"><%= current_user.new_hire_email %>'s Activities</h4>
+      <h4 class="home-header"><%= @new_hire.name %>'s Activities</h4>
       <% if @trackers != nil %>
         <% @trackers.each do |t| %>
           <ul class="list">

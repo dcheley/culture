@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     end
     if current_user.employees.empty? != true
       @users = current_user.employees
+      @new_hire = @users.find_by(email: current_user.new_hire_email)
     end
     if current_user.admin == 1 && current_user.activities.empty?
       seed_admin(current_user)
