@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    if current_user.reward == nil
+    if current_user.reward == nil && current_user.admin != 1
       Reward.create(name: "Progress", user_id: current_user.id, award: 0)
     end
     if current_user.employees.empty? != true
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-    :new_hire_email, :name, :organization)
+    :new_hire_email, :name, :organization, :admin_id)
   end
 
   def seed_admin(user)
