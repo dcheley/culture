@@ -51,9 +51,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @reward = @user.reward
-    @trackers = @user.trackers
+    @user = current_user
+    @reward = current_user.reward
+    @trackers = current_user.trackers
   end
 
   private

@@ -32,6 +32,7 @@ class TrackersController < ApplicationController
 
   def update
     @user = User.find_by(params[:user_id])
+    # @reward = Reward.find_by(id: @user.id)
     respond_to do |format|
       if current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status == 1
         current_user.reward.update_attributes(award: current_user.reward.award + 1)
@@ -39,7 +40,7 @@ class TrackersController < ApplicationController
         format.json { render json: @user, status: :updated, location: @user }
       elsif current_user.admin != 1 && @tracker.update_attributes(tracker_params) && @tracker.status != 1
         current_user.reward.update_attributes(award: current_user.reward.award - 1)
-        format.html { redirect_to(user_url(@user), notice: "#{@tracker.activity.name} marked incomplete")}
+        format.html { redirect_to(user_url(@user), notice: "#{@tracker.activity.name} marked incomplete") }
         format.json { render json: @user, status: :updated, location: @user }
       elsif current_user.admin == 1 && @tracker.update_attributes(tracker_params)
         TrackerMailer.employee_activity_email(@tracker).deliver_later
