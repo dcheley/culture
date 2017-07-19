@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.id = Activity.last.id + 1
+    @activity.admin_description = @activity.new_hire_description
     if @activity.save
       redirect_to home_url, notice: "#{@activity.name} successfully created"
     else
