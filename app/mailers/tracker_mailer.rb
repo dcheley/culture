@@ -8,7 +8,7 @@ class TrackerMailer < ApplicationMailer
     @url = 'http://shape-culture.herokuapp.com'
     mail(
       to: @employees,
-      subject: 'New Shape Activity'
+      subject: "#{@admin.organization} - New Hire"
     )
   end
 end
