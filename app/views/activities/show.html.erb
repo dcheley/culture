@@ -106,3 +106,9 @@
       <%= link_to "BACK", home_url, class:"submit", id:"green" %>
     </div>
   <% end %>
+
+  <% if @activity.trackers.empty? %>
+    <%= button_to 'DELETE', @activity, method: :delete, data: {confirm: "Are you sure?"}, class:"delete", id:"red" %>
+  <% else %>
+    <h4 class="home-header" id="red-text">Can't delete (currently assigned)</h4>
+  <% end %>
