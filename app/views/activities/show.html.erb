@@ -10,7 +10,7 @@
 
 <div class="half-screen">
   <div class="block-wrap" id="tracker-edit">
-    <p class="home-text"><b>Content:</b></p>
+    <p class="home-text"><b>Onboarding Tasks:</b></p>
     <p class="home-text"><b>1)</b> <%= @activity.task_one %></p>
     <p class="home-text"><b>2)</b> <%= @activity.task_two %></p>
     <p class="home-text"><b>3)</b> <%= @activity.task_three %></p>
@@ -36,7 +36,7 @@
       <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
       <%= f.hidden_field :activity_id, value: @activity.id %>
 
-      <p class="home-text"><b>Add Content:</b></p>
+      <p class="home-text"><b>Questions for New Hire:</b></p>
 
       <div class="field">
         <%= f.label :question_one, "1)", class:"field-label" %>

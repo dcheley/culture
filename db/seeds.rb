@@ -20,6 +20,7 @@ Content.create([
       organization and gain an understanding of what they do. To make sure that
       the new hire gets the most out of the exercise select from the below list
       the content that you want the tour guide to convey to the new hire.",
+    email_instructions: "you taking the new hire on a tour of the organization. On this tour you must cover the below content",
     task_one: "Explain what certain employees are working on outside of the new hire's area.",
     task_two: "Explain what can be done to make the organization a better place to work.",
     task_three: "Explain advice they have wished they received on their first day in the organization.",
@@ -41,6 +42,7 @@ Content.create([
       feedback, recognition, disagreements and collaboration. To make sure that
       the new hire gets the most out of the exercise select from the below list
       the content that you want the tour guide to convey to the new hire.",
+    email_instructions: "you and the rest of the team facilitating a team meeting where you will cover the below content",
     task_one: "Explain how the new hire should raise concerns that they have.",
     task_two: "Explain how you will work together, what should you expect of one another.",
     task_three: "Explain how you currently recognize one another.",
@@ -61,6 +63,7 @@ Content.create([
       impact on society. To make sure that the new hire gets the most out of the
       exercise select from the below list the content that you want the tour guide
       to convey to the new hire.",
+    email_instructions: "meeting with the new hire of the Organization and explaining to them the below content",
     task_one: "Explain how the organization betters your life as a stakeholder.",
     task_two: "Explain how the organization betters society.",
     task_three: "Explain how the organization can do even better at providing value to society.",
@@ -80,6 +83,7 @@ Content.create([
       their first day in order to ease the transition.  This meeting can take place
       either over phone, coffee, lunch, Skype or any other means the attendees agree
       on. Below you will find content that you can assign to help guide the meeting.",
+    email_instructions: "meeting with the new hire via phone, coffee, lunch, Skype or any other means you agree on before their first day of work and covering the below content",
     task_one: "Explain how you become valued as a co-worker in the organization.",
     task_two: "Explain what the team likes to see in a new employee.",
     task_three: "Explain what I can do before my first day to better my transition.",
@@ -100,6 +104,7 @@ Content.create([
       this relationship. This activity will allow you to schedule a one-on-one with
       your new employee in order to start the relationship off on the right foot.
       Below is some content you can assign to help steer the initial meeting.",
+    email_instructions: "having a one-on-one with the new hire in order to start the manager/employee relationship off on the right foot and covering the below content",
     task_one: "Explain what the vision of the organization is.",
     task_two: "Explain your story; how did you become a manager.",
     task_three: "Ask the new hire where they hope to be in 5 years.",
@@ -117,6 +122,7 @@ Content.create([
       close knit bonds. This activity will allow the new hire to better get to know
       their colleagues over a lunch break. Remember to assign some content below
       to ensure you get the new hire gets the most out of the activity.",
+    email_instructions: "having lunch with the new hire in order to better get to know each other. And covering the below content ",
     task_one: "Explain how the employees at the lunch rely on one another in their day to day work.",
     task_two: "Explain how your job and the new hire’s job are dependent on one another.",
     task_three: "Explain what the new hire can do to make the organization run more smoothly.",
@@ -139,6 +145,7 @@ Content.create([
       into the bigger picture. For this activity the new hire will spend some time
       job shadowing a co-worker in order for them to form these understandings.
       Don’t forget to assign content below.",
+    email_instructions: "allowing the new hire to shadow your job for (amount of time specified on activity) in order them to gain a more holistic view of the organization make sure you cover the below content",
     task_one: "Explain the biggest challenge you face.",
     task_two: "Explain what other teams you interact with throughout the day.",
     task_three: "Explain the norms of how different team works together.",
@@ -154,6 +161,7 @@ Content.create([
     admin_description: "Each manager has their own norms and practices that shape
       their expectations of their employees. This activity will allow the manager
       to explain what they expect of the new hire. Assignable content located below.",
+    email_instructions: "sitting down and speaking to the new employee about the norms and practices of the organization and what you will expect of them by covering the below content",
     task_one: "Show examples of well-done work from others.",
     task_two: "Explain how the new hire can go above and beyond.",
     task_three: "Explain if perfection or speed out of the door is more valued.",
@@ -170,6 +178,7 @@ Content.create([
       new employee into an organizational culture like a cup of Joe. For this
       integration activity, you will assign an employee to go a coffee with the
       new hire. Remember to assign content in order to guide the activity below.",
+    email_instructions: "take the new hire out for a cup of coffee in order to better get to know them and tell them more about the organization during the activity make sure to cover the below content",
     task_one: "Explain your best memory from working in the organization.",
     task_two: "Explain how the organization could be bettered from an operational standpoint.",
     task_three: "Explain what a typical day to day looks like for you.",
@@ -187,6 +196,7 @@ Content.create([
       how a career path will play out in the organization. For this activity you
       will speak with your new hire about the employee life cycle in the organization
       and how it will align with their career aspirations.",
+    email_instructions: "speaking to the new hire about how the typical career path plays out within the organization. Also speaking to them about their goals and career aspirations make sure you cover the below content",
     task_one: "Explain where an employee progresses in 1, 3, 5 and 10 years' time.",
     task_two: "Explain how they can go about reaching their career aspirations.",
     task_three: "Explain what kind of training is offered for their specific aspirations.",
