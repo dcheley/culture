@@ -29,7 +29,7 @@
 
   <div class="half-screen">
     <div class="block-wrap">
-      <h4 class="home-header">Choose Options</h4>
+      <h4 class="home-header">Choose Activities</h4>
       <% @activities.each do |a| %>
         <ul class="list">
           <br /><li><%= link_to a.name, "/users/#{current_user.id}/activities/#{a.id}", class:"link" %></li>
