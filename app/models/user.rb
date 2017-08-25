@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :activities
   has_many :contents, through: :activities
   has_many :trackers, foreign_key: :user_email, primary_key: :email
-  has_many :tracked_activities, through: :trackers
   has_many :feedbacks, through: :trackers
 
   validates :name, presence: true

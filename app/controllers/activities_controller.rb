@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_activity, only: [:show, :edit, :update, :destroy]
+  before_action :load_activity, only: [:show, :edit, :update]
 
   def new
     @activity = Activity.new
@@ -31,11 +31,6 @@ class ActivitiesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @activity.destroy
-    redirect_to home_url, notice: "#{@activity.name} successfully deleted"
   end
 
   private

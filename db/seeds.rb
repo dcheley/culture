@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create({ email: "admin@email.com", password: "123456", admin: 1, name: "Bob", organization: "We Test", title: "Tester" })
+User.create({ email: "clearbanc@email.com", password: "123456", admin: 1, name: "Karman", organization: "Clearbanc", title: "Boss" })
 
 Content.create([
-  { name: "The Tour",
+  { name: "Tour",
     new_hire_description: "One of the best ways to become acquainted with your coworkers
       and gain an understanding what they do is by taking a tour of the
       organization. You have been assigned a tour guide for this exercise and
@@ -145,7 +145,7 @@ Content.create([
     task_four: "Explain how the organization is dependent on your team.",
     task_five: "Explain how your team is dependent on other teams."
   },
-  { name: "Superier's expectations",
+  { name: "Superior's expectations",
     new_hire_description: "Each manager has their own norms and practices that shape
       their expectations of their employees. This activity will allow you to learn
       more about what your manager expects of you. More information on the

@@ -1,4 +1,4 @@
-<h4 class="home-header">Assign this activity to <div class="green-text"><%= "#{@new_hire.name}?" %></div></h4>
+<h4 class="home-header">Name of employee you would like to assign this activity to <div class="green-text"><%= "#{@new_hire.name}?" %></div></h4>
 
 <div class="container">
   <div class="block-wrap">
@@ -36,7 +36,7 @@
       <%= f.hidden_field :user_email, value: current_user.new_hire_email %>
       <%= f.hidden_field :activity_id, value: @activity.id %>
 
-      <p class="home-text"><b>Customize Questions:</b></p>
+      <p class="home-text"><b>Add Content:</b></p>
 
       <div class="field">
         <%= f.label :question_one, "1)", class:"field-label" %>
@@ -72,27 +72,27 @@
 
     <div class="container" style="clear: both;">
       <div class="field">
-        <%= f.label :contact_one, "1st Employee Contact", class:"field-label" %>
+        <%= f.label :contact_one, "Email instructions to:", class:"field-label" %>
         <%= f.text_field :contact_one, placeholder:"example@email.com", class:"field-input" %>
       </div>
 
       <div class="field">
-        <%= f.label :contact_two, "2nd Employee Contact", class:"field-label" %>
+        <%= f.label :contact_two, "Email instructions to:", class:"field-label" %>
         <%= f.text_field :contact_two, placeholder:"example@email.com", class:"field-input" %>
       </div>
 
       <div class="field">
-        <%= f.label :contact_three, "3rd Employee Contact", class:"field-label" %>
+        <%= f.label :contact_three, "Email instructions to:", class:"field-label" %>
         <%= f.text_field :contact_three, placeholder:"example2@email.com", class:"field-input" %>
       </div>
 
       <div class="field">
-        <%= f.label :contact_four, "4th Employee Contact", class:"field-label" %>
+        <%= f.label :contact_four, "Email instructions to:", class:"field-label" %>
         <%= f.text_field :contact_four, placeholder:"example3@email.com", class:"field-input" %>
       </div>
 
       <div class="field">
-        <%= f.label :contact_five, "5th Employee Contact", class:"field-label" %>
+        <%= f.label :contact_five, "Email instructions to:", class:"field-label" %>
         <%= f.text_field :contact_five, placeholder:"example4@email.com", class:"field-input" %>
       </div>
 
@@ -105,10 +105,4 @@
 
       <%= link_to "BACK", home_url, class:"submit", id:"green" %>
     </div>
-  <% end %>
-
-  <% if @activity.trackers.empty? %>
-    <%= button_to 'DELETE', @activity, method: :delete, data: {confirm: "Are you sure?"}, class:"delete", id:"red" %>
-  <% else %>
-    <h4 class="home-header" id="red-text">Can't delete (currently assigned)</h4>
   <% end %>
