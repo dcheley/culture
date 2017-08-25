@@ -16,6 +16,12 @@
     <p class="home-text"><b>4)</b> <%= @tracker.activity.task_four %></p>
     <p class="home-text"><b>5)</b> <%= @tracker.activity.task_five %></p>
     <p class="home-text"><b>6)</b> <%= @tracker.activity.task_six %></p>
+    <p class="home-text"><b>7)</b> <%= @tracker.question_one %></p>
+    <p class="home-text"><b>8)</b> <%= @tracker.question_two %></p>
+    <p class="home-text"><b>9)</b> <%= @tracker.question_three %></p>
+    <p class="home-text"><b>10)</b> <%= @tracker.question_four %></p>
+    <p class="home-text"><b>11)</b> <%= @tracker.question_five %></p>
+    <p class="home-text"><b>12)</b> <%= @tracker.question_six%></p>
   </div>
 </div>
 
@@ -65,22 +71,24 @@
       </div>
     </div>
 
-    <%= f.submit "SAVE ANSWERS", class:"submit", id:"green" %>
+    <div style="clear: both">
+      <%= f.submit "SAVE ANSWERS", class:"submit", id:"green" %>
 
-    <%= link_to "BACK", user_url(current_user), class:"submit", id:"green" %>
-  <% end %>
+      <%= link_to "BACK", user_url(current_user), class:"submit", id:"green" %>
+    <% end %>
 
-      <!-- Change to checkmark icon or something -->
-      <% if @tracker.status != 1 %>
-        <%= form_for(@tracker) do |f| %>
-          <%= f.hidden_field :status, value: 1 %>
-          <%= f.submit "MARK COMPLETE (DON'T FORGET TO SAVE ANSWERS FIRST)", class:"submit-link" %>
+        <!-- Change to checkmark icon or something -->
+        <% if @tracker.status != 1 %>
+          <%= form_for(@tracker) do |f| %>
+            <%= f.hidden_field :status, value: 1 %>
+            <%= f.submit "MARK COMPLETE (DON'T FORGET TO SAVE ANSWERS FIRST)", class:"submit-link" %>
+          <% end %>
+        <% else %>
+          <%= form_for(@tracker) do |f| %>
+            <%= f.hidden_field :status, value: nil %>
+            <%= f.submit 'MARK INCOMPLETE', class:"delete-link" %>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= form_for(@tracker) do |f| %>
-          <%= f.hidden_field :status, value: nil %>
-          <%= f.submit 'MARK INCOMPLETE', class:"delete-link" %>
-        <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
