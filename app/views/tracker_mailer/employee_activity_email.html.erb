@@ -4,10 +4,16 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @employees %>,</h1>
-
     <p>
-      We are emailing to notify you that <%= @admin.name %> has assigned you to facilitate an integration activity for the new hire <%= @new_hire.name %>. The activity you are required to facilitate is <%= @tracker.activity.name %> which will consist of <%= @tracker.activity.new_hire_description %>. The date you must do this by is <%= @tracker.due_date %>.
+      We are emailing to notify you that <%= @admin.name %> has assigned you to facilitate an integration activity for the new hire <%= @new_hire.name %>. The activity you are required to facilitate is <%= @tracker.activity.name %> which will consist of <%= @tracker.activity.email_instructions %>:
+      1) <%= @tracker.activity.task_one %>
+      2) <%= @tracker.activity.task_two %>
+      3) <%= @tracker.activity.task_three %>
+      4) <%= @tracker.activity.task_four %>
+      5) <%= @tracker.activity.task_five %>
+      6) <%= @tracker.activity.task_six %>
+
+      The date you must do this by is <%= @tracker.due_date.strftime('%A, %B %d @ %H:%M') %>.
     </p>
 
     <p>

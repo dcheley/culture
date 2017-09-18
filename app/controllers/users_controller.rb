@@ -65,8 +65,10 @@ class UsersController < ApplicationController
   def seed_admin(user)
     contents = Content.all
     contents.each do |c|
-      a = Activity.create(c.attributes.slice(*Activity.attribute_names))
-      a.update_attributes(user_id: user.id)
+      a = Activity.new(c.attributes.slice(*Activity.attribute_names))
+      a.user_id = user.id
+      Activity.last != nil ? a.id = Activity.last.id + 1 : a.id = 1
+      a.save
     end
   end
 end

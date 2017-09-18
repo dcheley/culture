@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_activity, only: [:show, :edit, :update, :destroy]
+  before_action :load_activity, only: [:show, :edit, :update]
 
   def new
     @activity = Activity.new
@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.id = Activity.last.id + 1
+    @activity.admin_description = @activity.new_hire_description
     if @activity.save
       redirect_to home_url, notice: "#{@activity.name} successfully created"
     else
@@ -32,11 +33,6 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  def destroy
-    @activity.destroy
-    redirect_to home_url, notice: "#{@activity.name} successfully deleted"
-  end
-
   private
 
   def load_activity
@@ -46,6 +42,6 @@ class ActivitiesController < ApplicationController
   def activity_params
     params.require(:activity).permit(:name, :admin_description,
     :new_hire_description, :task_one, :task_two, :task_three, :task_four,
-    :task_five, :user_id, :content_id, :prize)
+    :task_five, :task_six, :user_id, :content_id, :prize, :email_instructions)
   end
 end
