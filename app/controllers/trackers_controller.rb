@@ -65,9 +65,9 @@ class TrackersController < ApplicationController
   end
 
   def tracker_params
-    params.require(:tracker).permit(:status, :user_id, :activity_id, :user_email,
+    params.require(:tracker).permit(:status, :user_id, :activity_id,:user_email,
      :feedback_id, :contact_one, :contact_two, :contact_three, :contact_four,
      :contact_five, :due_date, :question_one, :question_two, :question_three,
-     :question_four, :question_five, :question_six)
+     :question_four, :question_five)
   end
 end
